@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stal.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <nav class="menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="#" class="menu__link">Играть</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Награды</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Рейтинг</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Задания</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">История</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <section class="game">
+        <div class="ruletca">
+          <div class="ruletca__balnce-experience">
+            <div class="ruletca-balance">
+              <p class="ruletca-balance__text">Ваш баланс</p>
+              <p class="ruletca-balance__mani">2000</p>
+              <span> $</span>
+            </div>
+            <div class="ruletca-lvl">
+              <p class="ruletca-lvl__text">Уровень</p>
+              <p class="ruletca-lvl__mani">1</p>
+            </div>
+            <div class="ruletca-experience">
+              <p class="ruletca-experience__text">Опыт</p>
+              <p class="ruletca-experience__mani">0</p>
+              <p>/<span class="ruletca-experience__opit">100</span></p>
+            </div>
+          </div>
+          <div class="ruletca-inner">
+            <div class="ruletca-inner__wheel">
+              <img
+                src="img/Айфон.png"
+                height="125px"
+                alt=""
+                class="ruletca-inner__things"
+              />
+              <img
+                src="img/Компютер.png"
+                alt=""
+                class="ruletca-inner__things"
+              />
+              <img src="img/Плазму.png" alt="" class="ruletca-inner__things" />
+              <img src="img/Пилосос.png" alt="" class="ruletca-inner__things" />
+              <img src="img/Чайник.png" alt="" class="ruletca-inner__things" />
+              <img
+                src="img/Стиралку.png"
+                alt=""
+                class="ruletca-inner__things"
+              />
+              <img src="img/Плитку.png" alt="" class="ruletca-inner__things" />
+              <img
+                src="img/Холодильник.png"
+                alt=""
+                class="ruletca-inner__things"
+              />
+              <div class="ruletca-inner__errows"></div>
+              <div class="winner">
+                <div class="winner__ruletca"></div>
+              </div>
+            </div>
+            <div class="audio"></div>
+            <button class="ruletca-inner__button">Крутить за 300$</button>
+          </div>
+          <div class="lvl"></div>
+        </div>
+        <div class="history">
+          <div class="history__container">
+            <div class="history__desc">
+              <h6 class="history__number">Последние 10 наград</h6>
+            </div>
+            <div class="history__desc">
+              <h5 class="history__number">Номер</h5>
+              <h6 class="history__name">Имя</h6>
+              <p class="history__price">Цена</p>
+            </div>
+            <ul class="histoty__list"></ul>
+          </div>
+        </div>
+      </section>
+      <section class="box-winner">
+        <div class="box">
+          <h5 class="box__name">Награды!</h5>
+          <div class="box-awards">
+            <div class="box-awards__items"></div>
+          </div>
+        </div>
+        <div class="winner-yes">
+          <h2 class="winner-yes__text">У вас появилась какая-то вещь</h2>
+          <div class="winner__audio"></div>
+        </div>
+      </section>
+      <section class="history-max">
+        <div class="history-max__containet">
+          <h3 class="history-max__title">История полученых предметов.</h3>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
