@@ -9,8 +9,202 @@
     <title>Document</title>
   </head>
   <body>
-   Вас заблокировано за нарушение правил игры!!
-    Пупкинам вход запрещен!!
+   <div class="masc">
+      <h5 class="masc__animation"></h5>
+      <h5 class="masc__text">Идет загрузка, пожалуйста подождите!</h5>
+    </div>
+    <div class="registration">
+      <div class="registration__ocno">
+        <h4 class="registration__title">Регестрация.</h4>
+        <form class="registration__form">
+          <p class="registration__text">Придумайте логин</p>
+          <input type="text" class="registration__name" />
+          <p class="registration__text">Введите ваш E-Mail</p>
+          <input type="email" class="registration__email" />
+          <p class="registration__text">Придумайте пароль</p>
+          <input type="password" class="registration__password" />
+          <button class="registration__over">Регестрация</button>
+        </form>
+
+        <h4 class="registration__text">Выберете аватарку!</h4>
+        <div class="registration__avatar">
+          <img
+            id="img-1"
+            src="img/avatar/01.jpg"
+            alt=""
+            class="registration__img images-user"
+          />
+          <img
+            id="img-2"
+            src="img/avatar/02.jpg"
+            alt=""
+            class="registration__img"
+          />
+          <img
+            id="img-3"
+            src="img/avatar/03.jpg"
+            alt=""
+            class="registration__img"
+          />
+          <img
+            id="img-4"
+            src="img/avatar/04.jpg"
+            alt=""
+            class="registration__img"
+          />
+          <img
+            id="img-5"
+            src="img/avatar/05.jpg"
+            alt=""
+            class="registration__img"
+          />
+          <img
+            id="img-6"
+            src="img/avatar/06.jpg"
+            alt=""
+            class="registration__img"
+          />
+        </div>
+      </div>
+    </div>
+    <header class="header">
+      <div class="header__container">
+        <nav class="menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="#" id="navig1" class="menu__link">Играть</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" id="navig2" class="menu__link">Профиль</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" id="navig3" class="menu__link">Награды</a>
+            </li>
+            <li class="menu__item5">
+              <a href="#" id="navig5" class="menu__link">История</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <section class="game section-close section-open" id="navig1elem">
+        <div class="game-home">
+          <div class="ruletca">
+            <div class="ruletca__balnce-experience">
+              <div class="ruletca-balance">
+                <p class="ruletca-balance__text">Ваш баланс</p>
+                <p class="ruletca-balance__mani">2000</p>
+                <span> $</span>
+              </div>
+              <div class="ruletca-lvl">
+                <p class="ruletca-lvl__text user-login"></p>
+                <p class="ruletca-lvl__text">Уровень</p>
+                <p class="ruletca-lvl__mani">1</p>
+              </div>
+              <div class="ruletca-experience">
+                <p class="ruletca-experience__text">Опыт</p>
+                <p class="ruletca-experience__mani">0</p>
+                <p>/<span class="ruletca-experience__opit">100</span></p>
+              </div>
+            </div>
+            <div class="ruletca-inner">
+              <div class="ruletca-inner__wheel">
+                <img
+                  src="img/Айфон.png"
+                  height="125px"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <img
+                  src="img/Компютер.png"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <img
+                  src="img/Плазму.png"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <img
+                  src="img/Пилосос.png"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <img
+                  src="img/Чайник.png"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <img
+                  src="img/Стиралку.png"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <img
+                  src="img/Плитку.png"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <img
+                  src="img/Холодильник.png"
+                  alt=""
+                  class="ruletca-inner__things"
+                />
+                <div class="ruletca-inner__errows"></div>
+                <div class="winner">
+                  <div class="winner__ruletca"></div>
+                </div>
+              </div>
+              <div class="audio"></div>
+              <button class="ruletca-inner__button">Крутить за 300$</button>
+            </div>
+            <div class="lvl"></div>
+          </div>
+          <div class="history">
+            <div class="history__container">
+              <div class="history__desc">
+                <h6 class="history__number">Последние 10 наград</h6>
+              </div>
+              <div class="history__desc">
+                <h5 class="history__number">Номер</h5>
+                <h6 class="history__name">Имя</h6>
+                <p class="history__price">Цена</p>
+              </div>
+              <ul class="histoty__list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="profile section-close" id="navig2elem">
+        <div class="profile__container">
+          <h3 class="profile__title">Ваш профиль</h3>
+          <p class="profile__name profile-text">Имя</p>
+          <p class="profile__lvl profile-text">Уровень</p>
+          <p class="profile__price profile-text">Баланс</p>
+          <div class="profile__img">
+            <img src="./img/avatar/01.jpg" alt="" class="profile__image" />
+          </div>
+        </div>
+      </section>
+      <section class="box-winner section-close" id="navig3elem">
+        <div class="box">
+          <h5 class="box__name">Награды!</h5>
+          <div class="box-awards">
+            <div class="box-awards__items"></div>
+          </div>
+        </div>
+      </section>
+      <section class="history-max section-close" id="navig5elem">
+        <div class="history-max__containet">
+          <h3 class="history-max__title">История полученых предметов.</h3>
+        </div>
+      </section>
+    </main>
+    <div class="winner-yes">
+      <h2 class="winner-yes__text">У вас появилась какая-то вещь</h2>
+      <div class="winner__audio"></div>
+    </div>
     
     <img src="https://yt3.ggpht.com/ytc/AKedOLTiMuvEUtI9wEwySXiYB3pzA5mruC-OfIVjun2gz9A=s900-c-k-c0x00ffffff-no-rj" alt="" class="">
     <script src="main.js"></script>
