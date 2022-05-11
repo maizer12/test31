@@ -26,8 +26,53 @@ opitup.textContent = opitLvl[1]
 //полная история наград
 const historyNew = document.querySelector('.history-max__containet')
 
+//регистрация
+let nameRegistration = document.querySelector('.registration__name')
+let email = document.querySelector('.registration__email')
+let password = document.querySelector('.registration__password')
+let buttonRegistration = document.querySelector('.registration__over')
+let userLOGIN = document.querySelector('.user-login')
+let userAvatar = document.querySelectorAll('.registration__img')
+//данные пользователя
+const user = {
+    userName : nameRegistration,
+    userEmail : email,
+    userPassword : password,
+}
+//аватарка 
+userAvatar.forEach(avatar =>{
+    avatar.addEventListener('click', ()=>{
+        document.querySelector('.images-user').classList.remove('images-user')
+        let idImages = avatar.id
+        document.getElementById(idImages).classList.add('images-user')
+        //звук фото
+        audio.innerHTML = '<audio src="./song/avatar.mp3" class="audio__start" autoplay></audio>'
+        //профиль фото
+        let imageLink = document.querySelector('.images-user')
+        console.log(imageLink.src)
+        let profileUser = document.querySelector('.profile__img')
+        profileUser.innerHTML = '<img src="' + imageLink.src  + '" alt="" class="profile__image" />'
+    })
+})
 
+//кнопка регистрации
+buttonRegistration.addEventListener('click', ()=>{
+    let numberUsern = user.userName.value.length
+    let numberEmail = user.userEmail.value.length
+    let numberPassw = user.userPassword.value.length
+    if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
+        audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
+        setTimeout(()=>
+        {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
+        800)
+    }
+    else{
+        userLOGIN.textContent = user.userName.value
+        document.querySelector('.registration').remove()
+    }
 
+})
+//window.addEventListener('click', ()=>{document.querySelector('.registration').remove()})
 //ЗВУК НАВЕДЕНИЯ НА ГЛАВНУЮ КНОПКУ
 
 buttonHover.addEventListener('mouseover', ()=>{
@@ -62,7 +107,7 @@ buttonGo.addEventListener('click', function(){
     // стрелка
     errow.style.transform = 'rotate(' +  degF + 'deg)';
     errow.style.transition = 'all 5.5s';
-    // минус 200 доларов
+    // минус 300 доларов
     balance.textContent = balance.textContent - price
     // окно победы внутри
     nameWin.innerHTML = '<h3 class="winner__name"> Поздравляем Вы выйграли <span>' + winner + '</span></h3>' + '<img src="img/'+ winner +'.png" alt="" class="winner__img" />' + '<audio src="./song/winner.mp3" autoplay></audio>'+ '<button class="winner__button">Забрать</button>'
@@ -162,4 +207,42 @@ buttonGo.addEventListener('click', function(){
         audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
         
     }
+})
+
+
+//загрузочное окно
+let masc = document.querySelector('.masc')
+
+ window.addEventListener('load', ()=>{
+    masc.remove()
+ })
+
+// профиль
+let profileOcno = document.querySelector('.profile')
+let profileName = document.querySelector('.profile__name')
+let profileLvl = document.querySelector('.profile__lvl')
+let profilePrice = document.querySelector('.profile__price')
+
+profileName.textContent = 'Логин: ' + user.userName.value
+
+
+
+// управление страницей
+let navigation = document.querySelectorAll('.menu__link')
+let imagesUser = document.querySelector('.images-user')
+let profileUser = document.querySelector('.images-user')
+profileUser.innerHTML = '<img src="' + imagesUser.src  + '" alt="" class="profile__image" />'
+
+
+
+navigation.forEach( navig =>{
+    navig.addEventListener('click', ()=>{
+        document.querySelector('.section-open').classList.remove('section-open')
+        document.getElementById(navig.id + 'elem').classList.add('section-open')
+        //получение актуальной информации в профиль
+        profilePrice.textContent = 'Текущий баланс: ' + balance.textContent + '$'
+        profileLvl.textContent = 'Ваш уровень: ' + lvl.textContent
+        //замена фото
+        //profileUser.innerHTML = '<img src="' + imagesUser.src  + '" alt="" class="profile__image" />'
+    })
 })
