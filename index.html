@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="stal.css" />
-    <title>Document</title>
+    <link rel="shortcut icon" href="./img/icon.png" />
+    <title>Ruletca</title>
   </head>
   <body>
-   <div class="masc">
+    <div class="masc">
       <h5 class="masc__animation"></h5>
       <h5 class="masc__text">Идет загрузка, пожалуйста подождите!</h5>
     </div>
@@ -175,6 +176,39 @@
             </div>
           </div>
         </div>
+        <div class="card">
+          <h2 class="card__title">Проверь свою удачу!</h2>
+          <div class="card__desc">
+            <h6 class="card__price">Цена билета 500$</h6>
+            <h6 class="card__bue">
+              У вас <span class="card__bue-number">2</span> билетов
+            </h6>
+          </div>
+          <ul class="card__items">
+            <li class="card__item" id="card-1">
+              <img src="img/card/01.jpg" alt="" class="card__img" />
+              <div class="card__winner">
+                <p class="card__text">Поздравляем вы выйграли</p>
+                <h5 class="card__number" id="card-1price"></h5>
+              </div>
+            </li>
+            <li class="card__item" id="card-2">
+              <img src="img/card/02.jpg" alt="" class="card__img" />
+              <div class="card__winner">
+                <p class="card__text">Поздравляем вы выйграли</p>
+                <h5 class="card__number" id="card-2price"></h5>
+              </div>
+            </li>
+            <li class="card__item" id="card-3">
+              <img src="img/card/03.jpg" alt="" class="card__img" />
+              <div class="card__winner">
+                <p class="card__text">Поздравляем вы выйграли</p>
+                <h5 class="card__number" id="card-3price"></h5>
+              </div>
+            </li>
+          </ul>
+          <button class="card__cupon">Купить билет</button>
+        </div>
       </section>
       <section class="profile section-close" id="navig2elem">
         <div class="profile__container">
@@ -182,6 +216,7 @@
           <p class="profile__name profile-text">Имя</p>
           <p class="profile__lvl profile-text">Уровень</p>
           <p class="profile__price profile-text">Баланс</p>
+          <p class="profile__vip profile-text">Статус - Обычный</p>
           <div class="profile__img">
             <img src="./img/avatar/01.jpg" alt="" class="profile__image" />
           </div>
@@ -201,12 +236,28 @@
         </div>
       </section>
     </main>
-    <div class="winner-yes">
-      <h2 class="winner-yes__text">У вас появилась какая-то вещь</h2>
-      <div class="winner__audio"></div>
+    <div class="specials">
+      <div class="winner-yes">
+        <h2 class="winner-yes__text">У вас появилась какая-то вещь</h2>
+        <div class="winner__audio"></div>
+      </div>
+      <div class="pro-accaunt">
+        <div class="pro-accaunt__window">
+          <ul class="pro-accaunt__list">
+            <li class="pro-accaunt__item">Вы получаете!</li>
+            <li class="pro-accaunt__item">1) Опыт х2</li>
+            <li class="pro-accaunt__item">2) Статус PRO в профиле</li>
+            <li class="pro-accaunt__item">3) Уникальный цвет обвотки фото</li>
+            <li class="pro-accaunt__item">Цена 6000$</li>
+          </ul>
+          <div class="pro-accaunt__buttons">
+            <button id="no-pro" class="pro-accaunt__btn">Отмена</button>
+            <button id="yes-pro" class="pro-accaunt__btn">Купить</button>
+          </div>
+        </div>
+        <button class="pro-accaunt__button">Купить pro аккаунт</button>
+      </div>
     </div>
-    
-    <img src="https://yt3.ggpht.com/ytc/AKedOLTiMuvEUtI9wEwySXiYB3pzA5mruC-OfIVjun2gz9A=s900-c-k-c0x00ffffff-no-rj" alt="" class="">
     <script src="main.js"></script>
   </body>
 </html>

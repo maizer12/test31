@@ -60,13 +60,13 @@ buttonRegistration.addEventListener('click', ()=>{
     let numberUsern = user.userName.value.length
     let numberEmail = user.userEmail.value.length
     let numberPassw = user.userPassword.value.length
+     розкоментити
     if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
         audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
         setTimeout(()=>
         {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
         800)
-    }
-    else{
+    }else{
         userLOGIN.textContent = user.userName.value
         document.querySelector('.registration').remove()
     }
@@ -82,7 +82,7 @@ buttonHover.addEventListener('mouseover', ()=>{
 
 let price = 300
 
-let num = 7
+let num = 8
 
 
 let degR = [0, 45, 90, 135, 180, 225, 270,  315,  360,]
@@ -90,7 +90,8 @@ let winnerR = ['Компютер', 'Холодильник', 'Айфон', 'Ча
 let priceP = [500, 300, 400, 25, 400, 200, 25, 50,]
 
 let nuberB = 0
-
+//получаймый опыт
+let opitVan = 25
 
 buttonGo.addEventListener('click', function(){
     if(balance.textContent > 299){
@@ -101,7 +102,7 @@ buttonGo.addEventListener('click', function(){
     let winner = winnerR[random]
     body.style.overflow = 'hidden'
     //добавление опыта
-        let expPLus = expInner += 25
+        let expPLus = expInner += opitVan
         exp.textContent = expPLus
     
     // стрелка
@@ -149,10 +150,6 @@ buttonGo.addEventListener('click', function(){
         audio.innerHTML = '<audio src="./song/nagrad.mp3" class="audio__start" autoplay></audio>'
         }
     })
-
-    
-
-    let numr =  Number(balance.textContent)
     
     //добавление елемента
     setTimeout(()=>{
@@ -205,7 +202,6 @@ buttonGo.addEventListener('click', function(){
     
     }else{
         audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
-        
     }
 })
 
@@ -219,19 +215,15 @@ let masc = document.querySelector('.masc')
 
 // профиль
 let profileOcno = document.querySelector('.profile')
-let profileName = document.querySelector('.profile__name')
 let profileLvl = document.querySelector('.profile__lvl')
 let profilePrice = document.querySelector('.profile__price')
-
-profileName.textContent = 'Логин: ' + user.userName.value
+let profileName = document.querySelector('.profile__name')
 
 
 
 // управление страницей
 let navigation = document.querySelectorAll('.menu__link')
-let imagesUser = document.querySelector('.images-user')
-let profileUser = document.querySelector('.images-user')
-profileUser.innerHTML = '<img src="' + imagesUser.src  + '" alt="" class="profile__image" />'
+
 
 
 
@@ -242,7 +234,69 @@ navigation.forEach( navig =>{
         //получение актуальной информации в профиль
         profilePrice.textContent = 'Текущий баланс: ' + balance.textContent + '$'
         profileLvl.textContent = 'Ваш уровень: ' + lvl.textContent
-        //замена фото
-        //profileUser.innerHTML = '<img src="' + imagesUser.src  + '" alt="" class="profile__image" />'
+        profileName.textContent = 'Логин: ' + user.userName.value
     })
+})
+//про аккаунт 
+ document.querySelector('.pro-accaunt__button').addEventListener('click', ()=> {
+    audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
+    document.querySelector('.pro-accaunt__window').classList.add('pro-go')
+})
+document.querySelector('#no-pro').addEventListener('click', ()=> {
+    audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
+    document.querySelector('.pro-accaunt__window').classList.remove('pro-go')
+})
+document.querySelector('#yes-pro').addEventListener('click', ()=> {
+if(balance.textContent > 6000){
+    audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
+    document.querySelector('.pro-accaunt__window').classList.remove('pro-go')
+    document.querySelector('.profile__image').style.border = '4px solid red'
+    document.querySelector('.profile__vip').textContent = 'Статус PRO'
+    balance.textContent = balance.textContent - 6000
+    document.querySelector('.pro-accaunt').remove()
+    opitVan = 50
+    return opitVan
+}else{
+    audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
+    setTimeout( ()=>{alert("Вам не хватает " + (6000 - balance.textContent) + "$"  )}, 800)
+}})
+//билет
+let nuberBil = document.querySelector('.card__bue-number')
+let numberBill = Number(nuberBil.textContent)
+//карточка
+
+document.querySelectorAll('.card__item').forEach( elements  =>{ 
+elements.addEventListener('click', () => {
+    let numberBill = Number(nuberBil.textContent)
+    if(numberBill > 0 ){
+    const randome = 11
+    let randomCard = Math.floor(Math.random() * randome)
+    document.getElementById(elements.id).classList.add('card-open')
+    document.getElementById(elements.id + 'price').textContent= (randomCard*100) + '$'
+    let numberBill = Number(nuberBil.textContent)
+    nuberBil.textContent = numberBill - 1
+    audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
+    let numberBalance = Number(balance.textContent)
+    balance.textContent = numberBalance + randomCard*100
+    let expPLus = expInner += opitVan
+    exp.textContent = expPLus
+    document.querySelector('.card').classList.add('body-bloc')
+    setTimeout(()=>{
+        document.querySelector('.card').classList.remove('body-bloc')
+        document.getElementById(elements.id).classList.remove('card-open')
+    }, 4000)}else{
+        alert('У вас закочились, билеты!')
+        document.querySelector('.card__items').classList.remove('icards-anim')
+    }
+})})
+document.querySelector('.card__cupon').addEventListener('click', ()=>{
+    if(balance.textContent > 499){
+    let numberBill = Number(nuberBil.textContent)
+    nuberBil.textContent = numberBill + 1
+    audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
+    balance.textContent = balance.textContent - 500
+    document.querySelector('.card__items').classList.add('icards-anim')
+}else{
+        alert('Не достаточно денег')
+    }
 })
