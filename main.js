@@ -60,7 +60,7 @@ buttonRegistration.addEventListener('click', ()=>{
     let numberUsern = user.userName.value.length
     let numberEmail = user.userEmail.value.length
     let numberPassw = user.userPassword.value.length
-     розкоментити
+     //розкоментити
     if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
         audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
         setTimeout(()=>
