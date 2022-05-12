@@ -16,12 +16,15 @@ let ruletca = document.querySelector('.lvl')
 let lvl = document.querySelector('.ruletca-lvl__mani')
 let exp = document.querySelector('.ruletca-experience__mani')
 let opitup = document.querySelector('.ruletca-experience__opit')
+//опыт
 let expInner = Number(exp.textContent)
+//уровень
 let lvlInner = Number(lvl.textContent)
 //левел опыт
-const opitLvl = [0,100, 300, 600, 1000, 1400, 1600, 2000]
 
-opitup.textContent = opitLvl[1]
+
+
+opitup.textContent = 300
 
 //полная история наград
 const historyNew = document.querySelector('.history-max__containet')
@@ -72,7 +75,6 @@ buttonRegistration.addEventListener('click', ()=>{
     }
 
 })
-//window.addEventListener('click', ()=>{document.querySelector('.registration').remove()})
 //ЗВУК НАВЕДЕНИЯ НА ГЛАВНУЮ КНОПКУ
 
 buttonHover.addEventListener('mouseover', ()=>{
@@ -91,8 +93,8 @@ let priceP = [500, 300, 400, 25, 400, 200, 25, 50,]
 
 let nuberB = 0
 //получаймый опыт
-let opitVan = 25
-
+let opitVan = 75
+//крутить
 buttonGo.addEventListener('click', function(){
     if(balance.textContent > 299){
     let random = Math.floor(Math.random() * num)
@@ -102,8 +104,8 @@ buttonGo.addEventListener('click', function(){
     let winner = winnerR[random]
     body.style.overflow = 'hidden'
     //добавление опыта
-        let expPLus = expInner += opitVan
-        exp.textContent = expPLus
+    let expPLus = expInner += opitVan
+    exp.textContent = expPLus
     
     // стрелка
     errow.style.transform = 'rotate(' +  degF + 'deg)';
@@ -184,14 +186,16 @@ buttonGo.addEventListener('click', function(){
         document.querySelector('.history__item').remove()
     }
     //новый левел 
-    if(expInner === opitLvl[lvlInner]){
+    const opitLvl = lvlInner * 300 
+    if(expInner >= opitLvl){
         setTimeout(()=>{
-            let levelUp =  lvlInner += 1
             let grow = Number(balance.textContent)
+            let levelUp =  lvlInner += 1
+            lvl.textContent = levelUp
+            opitup.textContent = opitLvl + 300
+            //баланс
             let jec = grow + (1000 * lvlInner)
             balance.textContent = jec
-            lvl.textContent = levelUp
-            opitup.textContent = opitLvl[levelUp]
             audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
             ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (1000 * lvlInner) + '$ Приятной игры!!</h3></div>'
         setTimeout(()=>{
@@ -254,7 +258,7 @@ if(balance.textContent > 6000){
     document.querySelector('.profile__vip').textContent = 'Статус PRO'
     balance.textContent = balance.textContent - 6000
     document.querySelector('.pro-accaunt').remove()
-    opitVan = 50
+    opitVan = 150
     return opitVan
 }else{
     audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
@@ -263,10 +267,11 @@ if(balance.textContent > 6000){
 //билет
 let nuberBil = document.querySelector('.card__bue-number')
 let numberBill = Number(nuberBil.textContent)
-//карточка
 
+//карточка
 document.querySelectorAll('.card__item').forEach( elements  =>{ 
 elements.addEventListener('click', () => {
+     
     let numberBill = Number(nuberBil.textContent)
     if(numberBill > 0 ){
     const randome = 11
@@ -278,8 +283,30 @@ elements.addEventListener('click', () => {
     audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
     let numberBalance = Number(balance.textContent)
     balance.textContent = numberBalance + randomCard*100
-    let expPLus = expInner += opitVan
+    //опыт
+    let expPLus = expInner +=   opitVan
     exp.textContent = expPLus
+    
+    
+    const opitLvl = lvlInner * 300 
+    console.log(opitLvl)
+    if(expInner >= opitLvl ){
+        setTimeout(()=>{
+            let grow = Number(balance.textContent)
+            let levelUp =  lvlInner += 1
+            lvl.textContent = levelUp
+            opitup.textContent = opitLvl + 300
+            //баланс
+            let jec = grow + (1000 * lvlInner)
+            balance.textContent = jec
+            audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
+            ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (1000 * lvlInner) + '$ Приятной игры!!</h3></div>'
+            setTimeout(()=>{
+                document.querySelector('.new-lvl').remove()
+            }, 5000)
+    })}
+
+    //карта-блок
     document.querySelector('.card').classList.add('body-bloc')
     setTimeout(()=>{
         document.querySelector('.card').classList.remove('body-bloc')
