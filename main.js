@@ -93,7 +93,7 @@ let priceP = [500, 300, 400, 25, 400, 200, 25, 50,]
 
 let nuberB = 0
 //получаймый опыт
-let opitVan = 75
+let opitVan = 25
 //крутить
 buttonGo.addEventListener('click', function(){
     if(balance.textContent > 299){
@@ -160,16 +160,19 @@ buttonGo.addEventListener('click', function(){
     // кнопка продать предмет
     buttonItems.forEach(element => {
         element.addEventListener('click', function(){
-           let idButton = []
-           idButton = (element.id)
-           document.getElementById( idButton).remove()
+        let productPrice = Number(element.textContent)
+        if(productPrice < 600){
+           document.getElementById( element.id).remove()
            let productPrice = Number(element.textContent)
            let priceBy = Number(balance.textContent)
+           console.log(productPrice)
            balance.textContent = priceBy + productPrice
            audio.innerHTML = '<audio src="./song/bue.mp3" class="audio__start" autoplay></audio>'
            if(items.getElementsByClassName('item')){
             winnerYes.classList.remove('yes-item')}
-        }) 
+            }else{
+            alert('Пошел в жопу маленький хакер!!')
+        }})
      })
     }, 6000)
     
@@ -194,10 +197,10 @@ buttonGo.addEventListener('click', function(){
             lvl.textContent = levelUp
             opitup.textContent = opitLvl + 300
             //баланс
-            let jec = grow + (1000 * lvlInner)
+            let jec = grow + (400 * lvlInner)
             balance.textContent = jec
             audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
-            ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (1000 * lvlInner) + '$ Приятной игры!!</h3></div>'
+            ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (400 * lvlInner) + '$ Приятной игры!!</h3></div>'
         setTimeout(()=>{
         document.querySelector('.new-lvl').remove()
         }, 5000)
@@ -251,14 +254,14 @@ document.querySelector('#no-pro').addEventListener('click', ()=> {
     document.querySelector('.pro-accaunt__window').classList.remove('pro-go')
 })
 document.querySelector('#yes-pro').addEventListener('click', ()=> {
-if(balance.textContent > 6000){
+if(balance.textContent > 10000){
     audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
     document.querySelector('.pro-accaunt__window').classList.remove('pro-go')
     document.querySelector('.profile__image').style.border = '4px solid red'
     document.querySelector('.profile__vip').textContent = 'Статус PRO'
-    balance.textContent = balance.textContent - 6000
+    balance.textContent = balance.textContent - 10000
     document.querySelector('.pro-accaunt').remove()
-    opitVan = 150
+    opitVan = opitVan * 2
     return opitVan
 }else{
     audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
@@ -267,61 +270,93 @@ if(balance.textContent > 6000){
 //билет
 let nuberBil = document.querySelector('.card__bue-number')
 let numberBill = Number(nuberBil.textContent)
+//легендарный билет
+let nuberBilet = document.querySelector('.card__bue-number_legen')
+let numberBilleet = Number(nuberBilet.textContent)
+
 
 //карточка
 document.querySelectorAll('.card__item').forEach( elements  =>{ 
 elements.addEventListener('click', () => {
-     
+    let numberBilleet = Number(nuberBilet.textContent)
     let numberBill = Number(nuberBil.textContent)
-    if(numberBill > 0 ){
-    const randome = 11
-    let randomCard = Math.floor(Math.random() * randome)
-    document.getElementById(elements.id).classList.add('card-open')
-    document.getElementById(elements.id + 'price').textContent= (randomCard*100) + '$'
-    let numberBill = Number(nuberBil.textContent)
-    nuberBil.textContent = numberBill - 1
-    audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
-    let numberBalance = Number(balance.textContent)
-    balance.textContent = numberBalance + randomCard*100
-    //опыт
-    let expPLus = expInner +=   opitVan
-    exp.textContent = expPLus
-    
-    
-    const opitLvl = lvlInner * 300 
-    console.log(opitLvl)
-    if(expInner >= opitLvl ){
-        setTimeout(()=>{
-            let grow = Number(balance.textContent)
-            let levelUp =  lvlInner += 1
-            lvl.textContent = levelUp
-            opitup.textContent = opitLvl + 300
-            //баланс
-            let jec = grow + (1000 * lvlInner)
-            balance.textContent = jec
-            audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
-            ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (1000 * lvlInner) + '$ Приятной игры!!</h3></div>'
-            setTimeout(()=>{
-                document.querySelector('.new-lvl').remove()
-            }, 5000)
-    })}
-
+    let idCard = elements.id + 'price'
     //карта-блок
-    document.querySelector('.card').classList.add('body-bloc')
-    setTimeout(()=>{
+     document.querySelector('.card').classList.add('body-bloc')
+        setTimeout(()=>{
         document.querySelector('.card').classList.remove('body-bloc')
         document.getElementById(elements.id).classList.remove('card-open')
-    }, 4000)}else{
-        alert('У вас закочились, билеты!')
-        document.querySelector('.card__items').classList.remove('icards-anim')
+     }, 4000)
+    console.log(idCard)
+    if( numberBilleet > 0 && (idCard ===  'card-4price'  || idCard ===  'card-5price' || idCard ===  'card-6price' )){
+        const randome = 11
+             let randomCard = Math.floor(Math.random() * randome)
+             document.getElementById(elements.id).classList.add('card-open')
+             let numberBill = Number(nuberBilet.textContent)
+             let numberBalance = Number(balance.textContent)
+             nuberBilet.textContent = numberBill - 1
+             audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
+            //добавление дениг на баланс
+            balance.textContent = numberBalance + randomCard*2000
+            //Добавление дениг
+            document.getElementById(elements.id + 'price').textContent= (randomCard*2000) + '$'
+
     }
-})})
+    else if(numberBill > 0 && (idCard ===  'card-1price'  || idCard ===  'card-2price' || idCard ===  'card-3price') ){
+     const randome = 11
+     let randomCard = Math.floor(Math.random() * randome)
+     document.getElementById(elements.id).classList.add('card-open')
+     let numberBill = Number(nuberBil.textContent)
+     nuberBil.textContent = numberBill - 1
+     audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
+     let numberBalance = Number(balance.textContent)
+     balance.textContent = numberBalance + randomCard*100
+     document.getElementById(elements.id + 'price').textContent= (randomCard*100) + '$'
+     //айди карт
+     }else{
+        alert('У вас закочились, билеты!')
+        
+    }
+     //опыт
+     let expPLus = expInner +=   opitVan
+     exp.textContent = expPLus
+     const opitLvl = lvlInner * 300 
+     if(expInner >= opitLvl ){
+         setTimeout(()=>{
+             let grow = Number(balance.textContent)
+             let levelUp =  lvlInner += 1
+             lvl.textContent = levelUp
+             opitup.textContent = opitLvl + 300
+             //баланс
+             let jec = grow + (400 * lvlInner)
+             balance.textContent = jec
+             audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
+             ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (400 * lvlInner) + '$ Приятной игры!!</h3></div>'
+             setTimeout(()=>{
+                 document.querySelector('.new-lvl').remove()
+             }, 5000)
+ })}})})
+
+//})})
+// кнопка
 document.querySelector('.card__cupon').addEventListener('click', ()=>{
     if(balance.textContent > 499){
     let numberBill = Number(nuberBil.textContent)
     nuberBil.textContent = numberBill + 1
     audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
     balance.textContent = balance.textContent - 500
+    document.querySelector('.card__items').classList.add('icards-anim')
+}else{
+        alert('Не достаточно денег')
+    }
+})
+//легендарна кнопка
+document.querySelector('.card__cupon_legen').addEventListener('click', ()=>{
+    if(balance.textContent > 14999){
+    let numberBill = Number(nuberBilet.textContent)
+    nuberBilet.textContent = numberBill + 1
+    audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
+    balance.textContent = balance.textContent - 15000
     document.querySelector('.card__items').classList.add('icards-anim')
 }else{
         alert('Не достаточно денег')
