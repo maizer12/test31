@@ -93,7 +93,7 @@ let priceP = [500, 300, 400, 25, 400, 200, 25, 50,]
 
 let nuberB = 0
 //получаймый опыт
-let opitVan = 15
+let opitVan = 25
 //крутить
 buttonGo.addEventListener('click', function(){
     if(balance.textContent > 299){
@@ -302,7 +302,7 @@ if(balance.textContent > 49999){
     }, 10000)
     balance.textContent = balance.textContent - 50000
     document.querySelector('.vip-accaunt').remove()
-    opitVan = opitVan * 3
+    opitVan = opitVan * 2
     return opitVan
 }else{
     audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
