@@ -93,7 +93,7 @@ let priceP = [500, 300, 400, 25, 400, 200, 25, 50,]
 
 let nuberB = 0
 //получаймый опыт
-let opitVan = 25
+let opitVan = 15
 //крутить
 buttonGo.addEventListener('click', function(){
     if(balance.textContent > 299){
@@ -248,13 +248,16 @@ navigation.forEach( navig =>{
  document.querySelector('.pro-accaunt__button').addEventListener('click', ()=> {
     audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
     document.querySelector('.pro-accaunt__window').classList.add('pro-go')
+    document.querySelector('body').style.overflow='hidden'
 })
 document.querySelector('#no-pro').addEventListener('click', ()=> {
+    document.querySelector('body').style.overflow=''
     audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
     document.querySelector('.pro-accaunt__window').classList.remove('pro-go')
 })
 document.querySelector('#yes-pro').addEventListener('click', ()=> {
 if(balance.textContent > 10000){
+    document.querySelector('body').style.overflow=''
     audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
     document.querySelector('.pro-accaunt__window').classList.remove('pro-go')
     document.querySelector('.profile__image').style.border = '4px solid red'
@@ -265,7 +268,45 @@ if(balance.textContent > 10000){
     return opitVan
 }else{
     audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
-    setTimeout( ()=>{alert("Вам не хватает " + (6000 - balance.textContent) + "$"  )}, 800)
+    setTimeout( ()=>{alert("Вам не хватает " + (10000 - balance.textContent) + "$"  )}, 800)
+}})
+//vip аккаунт
+document.querySelector('.vip-accaunt__button').addEventListener('click', ()=> {
+    document.querySelector('body').style.overflow='hidden'
+    audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
+    document.querySelector('.vip-accaunt__window').classList.add('pro-go')
+})
+document.querySelector('#no-vip').addEventListener('click', ()=> {
+    document.querySelector('body').style.overflow=''
+    audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
+    document.querySelector('.vip-accaunt__window').classList.remove('pro-go')
+})
+document.querySelector('#yes-vip').addEventListener('click', ()=> {
+if(balance.textContent > 49999){
+    document.querySelector('body').style.overflow=''
+    audio.innerHTML = '<audio src="./song/vip.mp3" class="audio__start" autoplay></audio>'
+    document.querySelector('.vip-accaunt__window').classList.remove('pro-go')
+    //вип стили
+    setTimeout( ()=>{
+        document.querySelector('body').style.background = 'linear-gradient(270deg, rgb(193, 171, 54) 10%, rgb(152, 127, 0) 45%, rgb(255, 214, 2))'
+        document.querySelector('.ruletca').style.background = 'linear-gradient(270deg, rgb(135, 120, 43) 10%, rgb(118, 100, 4) 45%, rgb(227, 192, 9))'
+        document.querySelector('.card').style.background = 'linear-gradient(270deg, rgb(255, 135, 0) 10%, rgb(118, 79, 4) 45%, #ed8105)'
+        document.querySelector('.card__title').style.background = 'linear-gradient(270deg, rgb(246, 136, 13) 10%, rgb(118, 79, 4) 45%, rgb(103, 67, 8))'
+        document.querySelector('.card__title_legen').style.background = ' linear-gradient(180deg, rgb(154, 151, 147) 2%, rgb(13, 13, 12) 57%)'
+        document.querySelector('.card__desc_legen').style.background = 'linear-gradient(45deg, rgb(9, 9, 9) 23%, rgb(66, 66, 66) 74%, rgb(0, 0, 0))'
+        document.querySelector('.card__items_legen').style.background = 'linear-gradient(45deg, rgb(13, 13, 13) 22%, rgb(118, 115, 110) 76%, rgb(0, 0, 0))'
+        document.querySelector('.card__cupon_legen').style.background = 'linear-gradient(45deg, rgb(9, 9, 9) 23%, rgb(66, 66, 66) 74%, rgb(0, 0, 0))'
+        document.querySelector('.profile__image').style["boxShadow"] = "0 0 40px red"
+        document.querySelector('.profile__image').style.border = '3px solid #fff'
+        document.querySelector('.profile__vip').textContent = 'Статус VIP'
+    }, 10000)
+    balance.textContent = balance.textContent - 50000
+    document.querySelector('.vip-accaunt').remove()
+    opitVan = opitVan * 3
+    return opitVan
+}else{
+    audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
+    setTimeout( ()=>{alert("Вам не хватает " + (50000 - balance.textContent) + "$"  )}, 800)
 }})
 //билет
 let nuberBil = document.querySelector('.card__bue-number')
@@ -288,19 +329,19 @@ elements.addEventListener('click', () => {
         document.getElementById(elements.id).classList.remove('card-open')
      }, 4000)
     console.log(idCard)
+    //легендарны карточки
     if( numberBilleet > 0 && (idCard ===  'card-4price'  || idCard ===  'card-5price' || idCard ===  'card-6price' )){
         const randome = 11
-             let randomCard = Math.floor(Math.random() * randome)
-             document.getElementById(elements.id).classList.add('card-open')
-             let numberBill = Number(nuberBilet.textContent)
-             let numberBalance = Number(balance.textContent)
-             nuberBilet.textContent = numberBill - 1
-             audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
-            //добавление дениг на баланс
-            balance.textContent = numberBalance + randomCard*2000
-            //Добавление дениг
-            document.getElementById(elements.id + 'price').textContent= (randomCard*2000) + '$'
-
+        let randomCard = Math.floor(Math.random() * randome)
+        document.getElementById(elements.id).classList.add('card-open')
+        let numberBill = Number(nuberBilet.textContent)
+        let numberBalance = Number(balance.textContent)
+        nuberBilet.textContent = numberBill - 1
+        audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
+        //добавление дениг на баланс
+        balance.textContent = numberBalance + randomCard*3000
+        //Добавление дениг
+        document.getElementById(elements.id + 'price').textContent= (randomCard*3000) + '$'
     }
     else if(numberBill > 0 && (idCard ===  'card-1price'  || idCard ===  'card-2price' || idCard ===  'card-3price') ){
      const randome = 11
@@ -315,7 +356,9 @@ elements.addEventListener('click', () => {
      //айди карт
      }else{
         alert('У вас закочились, билеты!')
-        
+        //удаление анимации
+        document.querySelector('.icards-anim').classList.remove('icards-anim')
+        document.querySelector('.card__items_ainimat').classList.remove('card__items_ainimat')
     }
      //опыт
      let expPLus = expInner +=   opitVan
@@ -357,7 +400,7 @@ document.querySelector('.card__cupon_legen').addEventListener('click', ()=>{
     nuberBilet.textContent = numberBill + 1
     audio.innerHTML = '<audio src="./song/prob.mp3" class="audio__start" autoplay></audio>'
     balance.textContent = balance.textContent - 15000
-    document.querySelector('.card__items').classList.add('icards-anim')
+    document.querySelector('.card__items_legen').classList.add('card__items_ainimat')
 }else{
         alert('Не достаточно денег')
     }
