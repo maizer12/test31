@@ -64,15 +64,15 @@ buttonRegistration.addEventListener('click', ()=>{
     let numberEmail = user.userEmail.value.length
     let numberPassw = user.userPassword.value.length
     // розкоментити
-    if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
-        audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
-        setTimeout(()=>
-        {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
-        800)
-    }else{
+    //if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
+    //    audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
+    //    setTimeout(()=>
+    //    {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
+    //    800)
+    //}else{
         userLOGIN.textContent = user.userName.value
         document.querySelector('.registration').remove()
-    }
+    //}
 
 })
 //ЗВУК НАВЕДЕНИЯ НА ГЛАВНУЮ КНОПКУ
@@ -100,8 +100,18 @@ buttonGo.addEventListener('click', function(){
     let random = Math.floor(Math.random() * num)
     let priceN =  priceP[random]
     let deg = degR[random]
+    
     let degF = deg + (720 + 360 + 360 + 360 + 360 )
     let winner = winnerR[random]
+    //задания
+    let numbers = nuberB += 1
+
+    let wheelObgect = document.querySelector('.tasks__wheel')
+    wheel = Number(wheelObgect.textContent)
+    if(wheel === numbers){
+    console.log('задание выполнено')
+    }
+
     body.style.overflow = 'hidden'
     //добавление опыта
     let expPLus = expInner += opitVan
@@ -123,7 +133,7 @@ buttonGo.addEventListener('click', function(){
 
     buttonGo.classList.add('butoon-ren')
     audio.innerHTML = '<audio src="./song/go.mp3" class="audio__start" autoplay></audio>'
-    let numbers = nuberB += 1
+    
     console.log(numbers )
     //крутящий бордер
     document.querySelector('.ruletca-inner__wheel').classList.add('animation-rotate')
@@ -155,7 +165,7 @@ buttonGo.addEventListener('click', function(){
     
     //добавление елемента
     setTimeout(()=>{
-    items.innerHTML += '<div id = "' + numbers + '" class="box-awards__item">'+'<p class="box-awards__name">' + winner +'</p>' + '<img src="img/'+ winner +'.png" alt="" class="box-awards__img" />'+ '<button'+ ' id= "' + numbers + '" class="box-awards__button">'   + priceN + '</button>' +'</div>'
+    items.innerHTML += '<div id = "' + numbers + '" class="box-awards__item">'+'<p class="box-awards__name">' + winner +'</p>' + '<img src="img/'+ winner +'.png" alt="" class="box-awards__img" />'+ '<button'+ ' id= "' + numbers + '" class="box-awards__button">'   + priceN  + '</button> </div>'
     let buttonItems =document.querySelectorAll('.box-awards__button')
     // кнопка продать предмет
     buttonItems.forEach(element => {
@@ -188,13 +198,14 @@ buttonGo.addEventListener('click', function(){
     if(numbers > 11 ){
         document.querySelector('.history__item').remove()
     }
+    
     //новый левел 
     const opitLvl = lvlInner * 300 
     if(expInner >= opitLvl){
         setTimeout(()=>{
             let grow = Number(balance.textContent)
-            let levelUp =  lvlInner += 1
-            lvl.textContent = levelUp
+             let levelUp =  lvlInner += 1
+             lvl.textContent = levelUp
             opitup.textContent = opitLvl + 300
             //баланс
             let jec = grow + (400 * lvlInner)
@@ -210,6 +221,7 @@ buttonGo.addEventListener('click', function(){
     }else{
         audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
     }
+    
 })
 
 
@@ -364,8 +376,10 @@ elements.addEventListener('click', () => {
      let expPLus = expInner +=   opitVan
      exp.textContent = expPLus
      const opitLvl = lvlInner * 300 
+     //левел
      if(expInner >= opitLvl ){
          setTimeout(()=>{
+             //опыт
              let grow = Number(balance.textContent)
              let levelUp =  lvlInner += 1
              lvl.textContent = levelUp
@@ -405,3 +419,5 @@ document.querySelector('.card__cupon_legen').addEventListener('click', ()=>{
         alert('Не достаточно денег')
     }
 })
+//задания
+
