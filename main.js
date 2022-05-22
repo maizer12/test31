@@ -64,15 +64,15 @@ buttonRegistration.addEventListener('click', ()=>{
     let numberEmail = user.userEmail.value.length
     let numberPassw = user.userPassword.value.length
     // розкоментити
-    //if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
-    //    audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
-    //    setTimeout(()=>
-    //    {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
-    //    800)
-    //}else{
+    if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
+        audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
+        setTimeout(()=>
+        {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
+        800)
+    }else{
         userLOGIN.textContent = user.userName.value
         document.querySelector('.registration').remove()
-    //}
+    }
 
 })
 //ЗВУК НАВЕДЕНИЯ НА ГЛАВНУЮ КНОПКУ
@@ -105,13 +105,31 @@ buttonGo.addEventListener('click', function(){
     let winner = winnerR[random]
     //задания
     let numbers = nuberB += 1
-
+    let nagrad = document.querySelector('.tasks__price-number')
     let wheelObgect = document.querySelector('.tasks__wheel')
-    wheel = Number(wheelObgect.textContent)
-    if(wheel === numbers){
-    console.log('задание выполнено')
-    }
-
+    //задания крутить колесо
+    const wheel = Number(wheelObgect.textContent)
+    
+    
+    if(wheel <= numbers){
+        
+        document.querySelector('.tasks__button').classList.add('zabrat-nagradu')
+        document.querySelector('.exercise-yes').classList.add('tesc-yes-active')
+        document.querySelector('.zabrat-nagradu').addEventListener('click', function (){
+            const wheel = Number(wheelObgect.textContent)
+            const nagride = Number(nagrad.textContent)
+            let jec = document.querySelector('.tasks__button')
+            if(jec.classList.contains('zabrat-nagradu')){
+            wheelObgect.textContent = wheel * 2
+            let priceBy = Number(balance.textContent)
+            balance.textContent = priceBy + nagride
+            nagrad.textContent = 2 * nagride
+            document.querySelector('.exercise-yes').classList.remove('tesc-yes-active')
+            audio.innerHTML = '<audio src="./song/nagrat-zd.mp3" class="audio__start" autoplay></audio>'
+            document.querySelector('.tasks__button').classList.remove('zabrat-nagradu')}
+        })
+    }//
+    
     body.style.overflow = 'hidden'
     //добавление опыта
     let expPLus = expInner += opitVan
@@ -134,7 +152,6 @@ buttonGo.addEventListener('click', function(){
     buttonGo.classList.add('butoon-ren')
     audio.innerHTML = '<audio src="./song/go.mp3" class="audio__start" autoplay></audio>'
     
-    console.log(numbers )
     //крутящий бордер
     document.querySelector('.ruletca-inner__wheel').classList.add('animation-rotate')
     
