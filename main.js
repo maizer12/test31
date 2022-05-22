@@ -109,8 +109,7 @@ buttonGo.addEventListener('click', function(){
     let wheelObgect = document.querySelector('.tasks__wheel')
     //задания крутить колесо
     const wheel = Number(wheelObgect.textContent)
-    
-    
+    document.querySelector('.progres-coleso').textContent = numbers
     if(wheel <= numbers){
         
         document.querySelector('.tasks__button').classList.add('zabrat-nagradu')
@@ -357,7 +356,6 @@ elements.addEventListener('click', () => {
         document.querySelector('.card').classList.remove('body-bloc')
         document.getElementById(elements.id).classList.remove('card-open')
      }, 4000)
-    console.log(idCard)
     //легендарны карточки
     if( numberBilleet > 0 && (idCard ===  'card-4price'  || idCard ===  'card-5price' || idCard ===  'card-6price' )){
         const randome = 11
@@ -382,6 +380,30 @@ elements.addEventListener('click', () => {
      let numberBalance = Number(balance.textContent)
      balance.textContent = numberBalance + randomCard*100
      document.getElementById(elements.id + 'price').textContent= (randomCard*100) + '$'
+      //задания
+    let numbers = nuberB += 1
+    let nagrad = document.querySelector('.tasks__price-number-card')
+    let wheelObgect = document.querySelector('.tasks__wheel-card')
+    //задания открыть карту
+    document.querySelector('.progres-card').textContent = numbers
+    const wheel = Number(wheelObgect.textContent)
+     if(wheel <= numbers){
+         document.querySelector('.tasks__button-card').classList.add('zabrat-nagradu')
+         document.querySelector('.exercise-yes').classList.add('tesc-yes-active')
+         document.querySelector('.zabrat-nagradu').addEventListener('click', function (){
+             const wheel = Number(wheelObgect.textContent)
+             const nagride = Number(nagrad.textContent)
+             let jec = document.querySelector('.tasks__button-card')
+             if(jec.classList.contains('zabrat-nagradu')){
+             wheelObgect.textContent = wheel * 2
+             let priceBy = Number(balance.textContent)
+             balance.textContent = priceBy + nagride
+             nagrad.textContent = 2 * nagride
+             document.querySelector('.exercise-yes').classList.remove('tesc-yes-active')
+             audio.innerHTML = '<audio src="./song/nagrat-zd.mp3" class="audio__start" autoplay></audio>'
+             document.querySelector('.tasks__button-card').classList.remove('zabrat-nagradu')}
+         })
+     }//
      //айди карт
      }else{
         alert('У вас закочились, билеты!')
@@ -436,5 +458,5 @@ document.querySelector('.card__cupon_legen').addEventListener('click', ()=>{
         alert('Не достаточно денег')
     }
 })
-//задания
+
 
