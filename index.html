@@ -24,7 +24,7 @@
           <input type="email" class="registration__email" />
           <p class="registration__text">Придумайте пароль</p>
           <input type="password" class="registration__password" />
-          <button class="registration__over">Регестрация</button>
+          <button class="registration__over btn-centr">Регестрация</button>
         </div>
 
         <h4 class="registration__text">Выберете аватарку!</h4>
@@ -86,6 +86,9 @@
             </li>
             <li class="menu__item5">
               <a href="#" id="navig5" class="menu__link">История</a>
+            </li>
+            <li class="menu__item5">
+              <a href="#" id="navig6" class="menu__link">Магазин</a>
             </li>
           </ul>
         </nav>
@@ -210,7 +213,7 @@
               </div>
             </li>
           </ul>
-          <button class="card__cupon">Купить билет</button>
+          <button class="card__cupon btn-centr">Купить билет</button>
           <h2 class="card__title card__title_legen">Легендарные карточки!</h2>
           <div class="card__desc card__desc_legen">
             <h6 class="card__price">Цена билета 15000$</h6>
@@ -255,7 +258,9 @@
               </div>
             </li>
           </ul>
-          <button class="card__cupon card__cupon_legen">Купить билет</button>
+          <button class="card__cupon card__cupon_legen btn-centr">
+            Купить билет
+          </button>
         </div>
       </section>
       <section class="profile section-close" id="navig2elem">
@@ -290,7 +295,7 @@
               Выполнено: <span class="progres-coleso">0</span>
             </p>
             <p class="tasks__text">
-              Крутить колесо <span class="tasks__wheel">2</span> раза
+              Крутить колесо <span class="tasks__wheel">1</span> раза
             </p>
             <button class="tasks__button">Забрать награду</button>
           </div>
@@ -307,7 +312,7 @@
             </p>
             <p class="tasks__text">
               Открыть
-              <span class="tasks__wheel tasks__wheel-card">2</span> карты
+              <span class="tasks__wheel-card">2</span> карты
             </p>
             <button class="tasks__button tasks__button-card">
               Забрать награду
@@ -319,6 +324,15 @@
         <div class="history-max__containet">
           <h3 class="history-max__title">История полученых предметов.</h3>
         </div>
+      </section>
+      <section class="shoop section-close" id="navig6elem">
+        <ul class="shoop__items">
+          <li class="shoop-item">
+            <div class="shoop-item__img"></div>
+            <div class="shoop-item__name">Билеты 10 штук</div>
+            <button class="shoop-item__btn">Купить</button>
+          </li>
+        </ul>
       </section>
     </main>
     <div class="specials">
@@ -365,6 +379,6 @@
         <button class="vip-accaunt__button">Купить vip аккаунт</button>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

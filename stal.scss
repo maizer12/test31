@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 body{
     padding-top: 40px;
     overflow-x: hidden;
@@ -6,7 +6,7 @@ body{
     //background-size: cover;
     background-image: url(https://img2.goodfon.ru/wallpaper/big/5/12/kvadraty-tekstura-zheltyy.jpg);
     cursor:default;
-    //цвет для вип 
+    //вет для вип 
     //background: linear-gradient(270deg, rgb(193, 171, 54) 10%, rgb(152, 127, 0) 45%, rgb(255, 214, 2));
 }
 .masc{
@@ -42,6 +42,7 @@ body{
         color: rgb(0, 0, 0);
         font-size: 34px;
         text-shadow: 0px 0px 20px rgb(243, 240, 240) ;
+        font-family: 'Roboto', sans-serif;
     }
 }
 .header {
@@ -66,6 +67,7 @@ body{
     }
 
     &__link {
+        font-family: 'Roboto', sans-serif;
         color: #fff;
         font-size: 18px;
         transition: 0.5s;
@@ -74,6 +76,7 @@ body{
         border-right: 1px solid rgba(255, 218, 9, 0);
         margin: 0px 10px;
         display: inline-block;
+        font-weight: 400;
         &:nth-child(1){
             margin-left: -10px;
         }
@@ -128,6 +131,7 @@ body{
     background-color: rgb(255, 172, 6);
     max-width: 300px;
     padding: 10px;
+    font-family: 'Roboto', sans-serif;
     &__mani {
         margin-left: 15px;
     }
@@ -141,6 +145,7 @@ body{
     border: 5px solid rgb(94, 73, 3);
     background-color: rgb(255, 172, 6);
     max-width: 300px;
+    font-family: 'Roboto', sans-serif;
     padding: 10px;
     display: flex;
     column-gap: 10px;
@@ -154,6 +159,7 @@ body{
     border: 5px solid rgb(94, 73, 3);
     background-color: rgb(255, 172, 6);
     max-width: 300px;
+    font-family: 'Roboto', sans-serif;
     padding: 10px;
     &__text{
         margin-right: 10px;
@@ -249,6 +255,7 @@ body{
         display: flex;
         font-size: 18px;
         font-weight: 700;
+        font-family: 'Roboto', sans-serif;
         border: 2px solid #000;
         padding: 20px 30px;
         display: inline-block;
@@ -303,13 +310,15 @@ body{
             line-height: 22px;
             font-size: 27px;
             color: #fff;
-            
+            font-family: 'Roboto', sans-serif;
             font-weight: 700;
             span{
                 margin-top: 25px;
                 display: block;
                 line-height: 42px;
                 font-size: 38px;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 500;
             }
         }
         &__img{
@@ -340,7 +349,7 @@ body{
         position: absolute;
         bottom: 20px;
         left: 50%;
-        
+        font-family: 'Roboto', sans-serif;
         color: #000;
     }
 }
@@ -371,6 +380,7 @@ body{
         font-weight: 700;
         color: #fff;
         margin-bottom: 25px;
+        font-family: 'Roboto', sans-serif;
         padding: 10px;
         border: 3px solid rgb(149, 90, 7);
         background-color: rgb(246, 154, 7);
@@ -398,6 +408,7 @@ body{
         line-height: 34px;
         font-weight: 700;
         color: #fff;
+        font-family: 'Roboto', sans-serif;
         margin-bottom: 25px;
         padding: 10px;
         border: 3px solid rgb(149, 90, 7);
@@ -420,6 +431,7 @@ body{
         display: inline-block;
         padding: 15px;
         border: 2px solid #000;
+        font-family: 'Roboto', sans-serif;
     }
 }
 button{
@@ -431,9 +443,10 @@ button{
         display: inline-block;
         max-width: 200px;
         background-color: rgb(255, 174, 0);
+        font-family: 'Roboto', sans-serif;
         color: #fff;
-        margin-left: 50%;
-        transform: translateX(-50%);
+        //margin-left: 50%;
+        //transform: translateX(-50%);
         position: relative;
         overflow: hidden;
         transition: 0.9s;
@@ -474,6 +487,7 @@ button{
     &__text {
         font-size: 20px;
         font-weight: 700;
+        font-family: 'Roboto', sans-serif;
     }
 }
 
@@ -506,6 +520,7 @@ button{
         padding: 10px;
         color: #fff;
         background-color: rgb(255, 166, 0);
+        font-family: 'Roboto', sans-serif;
     }
 
     &__number {
@@ -534,6 +549,7 @@ button{
         color: #fff;
         padding: 10px;
         font-size: 18px;
+        font-family: 'Roboto', sans-serif;
     }
 }
 .new-lvl{
@@ -545,6 +561,7 @@ button{
     color: #fff;
     padding: 40px;
     top: 100px;
+    font-family: 'Roboto', sans-serif;
     left: 50%;
     font-weight: 700;
     border: 5px solid rgb(62, 35, 1);
@@ -552,7 +569,7 @@ button{
     text-align: center;
 }
 .new-lvl__number{
-    
+    font-family: 'Roboto', sans-serif;
     font-size: 60px;
     font-weight: 700;
     background-color: rgb(62, 35, 1);
@@ -577,6 +594,7 @@ button{
         font-size: 32px;
         color: #fff;
         font-weight: 700;
+        font-family: 'Roboto', sans-serif;
     }
     &__item{
         display: flex;
@@ -586,6 +604,7 @@ button{
         color: #fff;
         padding: 10px;
         font-size: 18px;
+        font-family: 'Roboto', sans-serif;
     }
 }
 .registration {
@@ -611,6 +630,7 @@ button{
         font-weight: 700;
         color: #fff;
         text-align: center;
+        font-family: 'Roboto', sans-serif;
     }
 
     &__form {
@@ -623,13 +643,14 @@ button{
     input{
         width: 200px;
         font-size: 17px;
-        font-weight: 600;
+        font-weight: 500;
         height: 40px;
         margin: 10px auto;
         padding: 10px 5px 10px 10px;
         border: 1px solid #000;
         color: #fff;
         background-color: rgba($color: #ffffff, $alpha: 0.1);
+        font-family: 'Roboto', sans-serif;
     }
     &__text{
         font-size: 19px;
@@ -637,6 +658,7 @@ button{
         text-align: center;
         color: #fff;
         margin-top: 10px;
+        font-family: 'Roboto', sans-serif;
     }
     &__avatar{
         display: grid;
@@ -683,6 +705,7 @@ button{
         font-size: 38px;
         color: #fff;
         font-weight: 700;
+        font-family: 'Roboto', sans-serif;
     }
 
     &__name {
@@ -700,6 +723,7 @@ button{
     color: rgb(255, 255, 255);
     font-weight: 700;
     text-shadow: 0px 0 10px rgb(0, 0, 0);
+    font-family: 'Roboto', sans-serif;
 }
 .section-close{
     display: none;
@@ -734,6 +758,7 @@ button{
         margin: 20px 0;
         font-size: 22px;
         font-weight: 700;
+        font-family: 'Roboto', sans-serif;
     }
     &__buttons{
         
@@ -773,7 +798,7 @@ button{
         font-size: 32px;
         padding: 10px;
         margin: 0px auto;
-        
+        font-family: 'Roboto', sans-serif;
         //вип 
         //background: linear-gradient(270deg, rgb(246, 136, 13) 10%, rgb(118, 79, 4) 45%, rgb(103, 67, 8));
 
@@ -794,6 +819,7 @@ button{
         font-size: 21px;
         font-weight: 700;
         background-color: #fff;
+        font-family: 'Roboto', sans-serif;
         padding: 10px;
         &_legen{
             background: linear-gradient(135deg, rgb(17, 16, 16) 29%, rgb(67, 67, 67) 53%, rgb(0, 0, 0));
@@ -862,6 +888,8 @@ button{
         background-image: url(https://img.freepik.com/free-vector/gaming-background-blue-and-purple-with-element_286658-704.jpg);
         background-size: cover;
         font-size: 30px;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
         color: #fff;
         border: 7px solid #000;
         z-index: 1;
@@ -887,6 +915,8 @@ button{
     &__number {
         font-size: 42px;
         margin: 25px 0;
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
     }
     &__cupon_legen{
         border: 3px solid #fff;
@@ -968,6 +998,8 @@ button{
             margin: 15px;
             font-size: 24px;
             line-height: 1.2;
+            font-weight: 400;
+            font-family: 'Roboto', sans-serif;
             animation: vipitem 2s infinite alternate-reverse;
             @keyframes vipitem {
                 0%{
@@ -1052,6 +1084,8 @@ button{
         background-size: cover;
         font-size: 21px;
         color: #fff;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
     }
 
     &__name {
@@ -1060,10 +1094,14 @@ button{
         text-shadow: 0 0 5px rgb(122, 100, 100);
         padding: 10px 0;
         background-color: rgba($color: #280557, $alpha: 0.6);
+        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
     }
     &__price{
         font-size: 49px;
         color: #fff;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
         //text-shadow: 0 0 10px #fff;
     }
 
@@ -1090,6 +1128,7 @@ button{
         color: #fff;
         font-size: 22px;
         font-weight: 700;
+        font-family: 'Roboto', sans-serif;
     }
 }
 .tesc-yes-active{
@@ -1104,3 +1143,54 @@ button{
         opacity: 1;
     }
 }
+.shoop {
+    margin: 0px auto;
+    max-width: 1000px;
+    background-image: url(https://funart.pro/uploads/posts/2021-04/1618422994_30-funart_pro-p-oboi-fon-korichnevii-fon-31.jpg);
+    &__items {
+        display: flex;
+        margin-top: 20px;
+    }
+}
+.btn-centr{
+    transform: translate(-50%);
+    margin-left: 50%;
+}
+.shoop-item {
+    border: 2px solid #000;
+    width: 200px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #ed8105;
+    &__img {
+        min-width: 180px;
+        margin: 0px auto;
+        height: 220px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: bacground 20s infinite alternate-reverse;
+        @keyframes bacground {
+            0% { background-image: url(./img/card/min/01.jpg);
+            }
+            50% { background-image: url(./img/card/min/02.jpg);
+            }
+            100%{background-image: url(./img/card/min/03.jpg);
+            }
+        }
+    }
+
+    &__name {
+        color: #fff;
+        font-size: 21px;
+        text-align: center;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    &__btn {
+    }
+}
+

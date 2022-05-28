@@ -23,64 +23,20 @@ let lvlInner = Number(lvl.textContent)
 //левел опыт
 
 
-
 opitup.textContent = 300
 
 //полная история наград
 const historyNew = document.querySelector('.history-max__containet')
 
-//регистрация
-let nameRegistration = document.querySelector('.registration__name')
-let email = document.querySelector('.registration__email')
-let password = document.querySelector('.registration__password')
-let buttonRegistration = document.querySelector('.registration__over')
-let userLOGIN = document.querySelector('.user-login')
-let userAvatar = document.querySelectorAll('.registration__img')
-//данные пользователя
-const user = {
-    userName : nameRegistration,
-    userEmail : email,
-    userPassword : password,
-}
-//аватарка 
-userAvatar.forEach(avatar =>{
-    avatar.addEventListener('click', ()=>{
-        document.querySelector('.images-user').classList.remove('images-user')
-        let idImages = avatar.id
-        document.getElementById(idImages).classList.add('images-user')
-        //звук фото
-        audio.innerHTML = '<audio src="./song/avatar.mp3" class="audio__start" autoplay></audio>'
-        //профиль фото
-        let imageLink = document.querySelector('.images-user')
-        console.log(imageLink.src)
-        let profileUser = document.querySelector('.profile__img')
-        profileUser.innerHTML = '<img src="' + imageLink.src  + '" alt="" class="profile__image" />'
-    })
-})
+//кнопка регистрация
+import cnopRegistration from './js/cnopcaRegist.js'
 
-//кнопка регистрации
-buttonRegistration.addEventListener('click', ()=>{
-    let numberUsern = user.userName.value.length
-    let numberEmail = user.userEmail.value.length
-    let numberPassw = user.userPassword.value.length
-    // розкоментити
-    if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
-        audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
-        setTimeout(()=>
-        {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
-        800)
-    }else{
-        userLOGIN.textContent = user.userName.value
-        document.querySelector('.registration').remove()
-    }
 
-})
 //ЗВУК НАВЕДЕНИЯ НА ГЛАВНУЮ КНОПКУ
 
 buttonHover.addEventListener('mouseover', ()=>{
     audio.innerHTML = '<audio src="./song/hover.mp3" class="audio__start" autoplay></audio>'
 })
-
 
 let price = 300
 
@@ -100,7 +56,6 @@ buttonGo.addEventListener('click', function(){
     let random = Math.floor(Math.random() * num)
     let priceN =  priceP[random]
     let deg = degR[random]
-    
     let degF = deg + (720 + 360 + 360 + 360 + 360 )
     let winner = winnerR[random]
     //задания
@@ -111,7 +66,6 @@ buttonGo.addEventListener('click', function(){
     const wheel = Number(wheelObgect.textContent)
     document.querySelector('.progres-coleso').textContent = numbers
     if(wheel <= numbers){
-        
         document.querySelector('.tasks__button').classList.add('zabrat-nagradu')
         document.querySelector('.exercise-yes').classList.add('tesc-yes-active')
         document.querySelector('.zabrat-nagradu').addEventListener('click', function (){
@@ -119,7 +73,7 @@ buttonGo.addEventListener('click', function(){
             const nagride = Number(nagrad.textContent)
             let jec = document.querySelector('.tasks__button')
             if(jec.classList.contains('zabrat-nagradu')){
-            wheelObgect.textContent = wheel * 2
+            wheelObgect.textContent = wheel * 4
             let priceBy = Number(balance.textContent)
             balance.textContent = priceBy + nagride
             nagrad.textContent = 2 * nagride
@@ -166,19 +120,14 @@ buttonGo.addEventListener('click', function(){
         errow.classList.remove('animat')
         buttonGo.style.display='block'
         audio.innerHTML = '<audio src="./song/oke.mp3" class="audio__start" autoplay></audio>'
-
-
-
         //крутящий бордер
         document.querySelector('.ruletca-inner__wheel').classList.remove('animation-rotate')
-       
         // вы получили награду
         if(items.getElementsByClassName('item')){
         winnerYes.classList.add('yes-item')
         audio.innerHTML = '<audio src="./song/nagrad.mp3" class="audio__start" autoplay></audio>'
         }
     })
-    
     //добавление елемента
     setTimeout(()=>{
     items.innerHTML += '<div id = "' + numbers + '" class="box-awards__item">'+'<p class="box-awards__name">' + winner +'</p>' + '<img src="img/'+ winner +'.png" alt="" class="box-awards__img" />'+ '<button'+ ' id= "' + numbers + '" class="box-awards__button">'   + priceN  + '</button> </div>'
@@ -201,7 +150,6 @@ buttonGo.addEventListener('click', function(){
         }})
      })
     }, 6000)
-    
     //добавление истории
     setTimeout(()=>{
     history.innerHTML += '<li class="history__item"><span>'+ numbers +'. </span><span>'+ winner +'</span><span>'+ priceN +'</span></li>'
@@ -210,7 +158,6 @@ buttonGo.addEventListener('click', function(){
     setTimeout(()=>{
         historyNew.innerHTML += '<li class="history-max__item"><span>'+ numbers +'. </span><span>'+ winner +'</span><span>'+ priceN +'</span></li>'
     }, 6000)
-    
     if(numbers > 11 ){
         document.querySelector('.history__item').remove()
     }
@@ -249,12 +196,8 @@ let masc = document.querySelector('.masc')
  })
 
 // профиль
-let profileOcno = document.querySelector('.profile')
 let profileLvl = document.querySelector('.profile__lvl')
 let profilePrice = document.querySelector('.profile__price')
-let profileName = document.querySelector('.profile__name')
-
-
 
 // управление страницей
 let navigation = document.querySelectorAll('.menu__link')
@@ -269,7 +212,7 @@ navigation.forEach( navig =>{
         //получение актуальной информации в профиль
         profilePrice.textContent = 'Текущий баланс: ' + balance.textContent + '$'
         profileLvl.textContent = 'Ваш уровень: ' + lvl.textContent
-        profileName.textContent = 'Логин: ' + user.userName.value
+        
     })
 })
 //про аккаунт 
@@ -345,8 +288,11 @@ let numberBilleet = Number(nuberBilet.textContent)
 
 
 //карточка
+let nubersBe = 0
 document.querySelectorAll('.card__item').forEach( elements  =>{ 
+
 elements.addEventListener('click', () => {
+    
     let numberBilleet = Number(nuberBilet.textContent)
     let numberBill = Number(nuberBil.textContent)
     let idCard = elements.id + 'price'
@@ -381,7 +327,7 @@ elements.addEventListener('click', () => {
      balance.textContent = numberBalance + randomCard*100
      document.getElementById(elements.id + 'price').textContent= (randomCard*100) + '$'
       //задания
-    let numbers = nuberB += 1
+    let numbers = nubersBe += 1
     let nagrad = document.querySelector('.tasks__price-number-card')
     let wheelObgect = document.querySelector('.tasks__wheel-card')
     //задания открыть карту
@@ -459,4 +405,12 @@ document.querySelector('.card__cupon_legen').addEventListener('click', ()=>{
     }
 })
 
-
+//купить 10 билетов
+document.querySelector('.shoop-item__btn').addEventListener('click', ()=>{
+    let priceBy = Number(balance.textContent)
+    if(priceBy >= 1000){
+        balance.textContent = priceBy - 1000
+        let numberBill = Number(nuberBil.textContent)
+        nuberBil.textContent = numberBill + 10
+    }else{ alert('У вас не достаточно денег!')}
+})
