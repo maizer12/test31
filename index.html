@@ -81,9 +81,6 @@
             <li class="menu__item">
               <a href="#" id="navig3" class="menu__link">Награды</a>
             </li>
-            <li class="menu__item">
-              <a href="#" id="navig4" class="menu__link">Задания</a>
-            </li>
             <li class="menu__item5">
               <a href="#" id="navig5" class="menu__link">История</a>
             </li>
@@ -170,6 +167,7 @@
           </div>
           <div class="history">
             <div class="history__container">
+              <div class="history__btn-tasc"></div>
               <div class="history__desc">
                 <h6 class="history__number">Последние 10 наград</h6>
               </div>
@@ -262,6 +260,45 @@
             Купить билет
           </button>
         </div>
+        <div class="tasks">
+          <h2 class="tasks__title">Задания!</h2>
+          <div class="tasks__container">
+            <div class="tasks__item">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number">250</span>$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-coleso">0</span>
+              </p>
+              <p class="tasks__text">
+                Крутить колесо <span class="tasks__wheel">1</span> раза
+              </p>
+              <button class="tasks__button">Забрать награду</button>
+            </div>
+            <div class="tasks__item">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number tasks__price-number-card"
+                  >375</span
+                >$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-card">0</span>
+              </p>
+              <p class="tasks__text">
+                Открыть
+                <span class="tasks__wheel-card">2</span> карты
+              </p>
+              <button class="tasks__button tasks__button-card">
+                Забрать награду
+              </button>
+            </div>
+          </div>
+          <button class="tasks__btn">Закрыть</button>
+        </div>
       </section>
       <section class="profile section-close" id="navig2elem">
         <div class="profile__container">
@@ -283,43 +320,7 @@
           </div>
         </div>
       </section>
-      <section class="tasks section-close" id="navig4elem">
-        <div class="tasks__container">
-          <div class="tasks__item">
-            <h5 class="tasks__name">Задание</h5>
-            <h4 class="tasks__prize">Награда</h4>
-            <h4 class="tasks__price">
-              <span class="tasks__price-number">250</span>$
-            </h4>
-            <p class="tasks__text">
-              Выполнено: <span class="progres-coleso">0</span>
-            </p>
-            <p class="tasks__text">
-              Крутить колесо <span class="tasks__wheel">1</span> раза
-            </p>
-            <button class="tasks__button">Забрать награду</button>
-          </div>
-          <div class="tasks__item">
-            <h5 class="tasks__name">Задание</h5>
-            <h4 class="tasks__prize">Награда</h4>
-            <h4 class="tasks__price">
-              <span class="tasks__price-number tasks__price-number-card"
-                >375</span
-              >$
-            </h4>
-            <p class="tasks__text">
-              Выполнено: <span class="progres-card">0</span>
-            </p>
-            <p class="tasks__text">
-              Открыть
-              <span class="tasks__wheel-card">2</span> карты
-            </p>
-            <button class="tasks__button tasks__button-card">
-              Забрать награду
-            </button>
-          </div>
-        </div>
-      </section>
+
       <section class="history-max section-close" id="navig5elem">
         <div class="history-max__containet">
           <h3 class="history-max__title">История полученых предметов.</h3>
@@ -336,6 +337,30 @@
       </section>
     </main>
     <div class="specials">
+      <div class="profile-user">
+        <button class="profile-user__btn">
+          <img
+            class="profile-user__btn-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/OOjs_UI_icon_close.svg/480px-OOjs_UI_icon_close.svg.png"
+            alt=""
+          />
+        </button>
+        <div class="profile-user__user-prof">
+          <div class="profile-user__img">
+            <img src="./img/avatar/01.jpg" alt="" class="profile-user__img" />
+          </div>
+          <div class="profile-user__desc">
+            <div class="profile-user__name">нету</div>
+            <p class="profile-user__statuses">Статус - Обычный</p>
+            <h6 class="profile-user__prise">
+              <span class="profile-user__prise-number">0</span>$
+            </h6>
+            <p class="profile-user__lvl">
+              Уровень: <span class="profile-user__lvl-number">1</span>
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="winner-yes">
         <h2 class="winner-yes__text">У вас появилась какая-то вещь</h2>
         <div class="winner__audio"></div>

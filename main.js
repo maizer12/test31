@@ -30,6 +30,7 @@ const historyNew = document.querySelector('.history-max__containet')
 
 //кнопка регистрация
 import cnopRegistration from './js/cnopcaRegist.js'
+import shoop from './js/shoop.js'
 
 
 //ЗВУК НАВЕДЕНИЯ НА ГЛАВНУЮ КНОПКУ
@@ -49,7 +50,7 @@ let priceP = [500, 300, 400, 25, 400, 200, 25, 50,]
 
 let nuberB = 0
 //получаймый опыт
-let opitVan = 25
+let opitVan = 150
 //крутить
 buttonGo.addEventListener('click', function(){
     if(balance.textContent > 299){
@@ -166,6 +167,7 @@ buttonGo.addEventListener('click', function(){
     const opitLvl = lvlInner * 300 
     if(expInner >= opitLvl){
         setTimeout(()=>{
+            
             let grow = Number(balance.textContent)
              let levelUp =  lvlInner += 1
              lvl.textContent = levelUp
@@ -177,6 +179,9 @@ buttonGo.addEventListener('click', function(){
             ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (400 * lvlInner) + '$ Приятной игры!!</h3></div>'
         setTimeout(()=>{
         document.querySelector('.new-lvl').remove()
+        //опыт 
+        let levele = document.querySelector('.ruletca-lvl').textContent
+        document.querySelector('.profile-user__lvl').textContent = levele
         }, 5000)
         }, 8000)
     }
@@ -376,6 +381,9 @@ elements.addEventListener('click', () => {
              ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (400 * lvlInner) + '$ Приятной игры!!</h3></div>'
              setTimeout(()=>{
                  document.querySelector('.new-lvl').remove()
+                 //опыт 
+                let levele = document.querySelector('.ruletca-lvl').textContent
+                document.querySelector('.profile-user__lvl').textContent = levele
              }, 5000)
  })}})})
 
@@ -404,13 +412,35 @@ document.querySelector('.card__cupon_legen').addEventListener('click', ()=>{
         alert('Не достаточно денег')
     }
 })
+//профиль баланс
 
-//купить 10 билетов
-document.querySelector('.shoop-item__btn').addEventListener('click', ()=>{
-    let priceBy = Number(balance.textContent)
-    if(priceBy >= 1000){
-        balance.textContent = priceBy - 1000
-        let numberBill = Number(nuberBil.textContent)
-        nuberBil.textContent = numberBill + 10
-    }else{ alert('У вас не достаточно денег!')}
+    window.addEventListener('click', function(){
+        this.setTimeout(function(){
+        document.querySelector('.profile-user__prise-number').textContent = 'Ваш баланс: ' + balance.textContent
+    }, 1000   )
+    })
+
+//прикрыть вкладку профиля
+document.querySelector('.profile-user__btn').addEventListener('click', function(){
+    let userProfile = document.querySelector('.profile-user__user-prof')
+    if(userProfile.classList.contains('scrit')){
+        document.querySelector('.profile-user__user-prof').classList.remove('scrit-none')
+        audio.innerHTML = '<audio src="./song/hover.mp3" class="audio__start" autoplay></audio>'
+        setTimeout(()=>{
+            userProfile.classList.remove('scrit')
+        }, 100)
+    }else{
+        userProfile.classList.add('scrit')
+        audio.innerHTML = '<audio src="./song/hover.mp3" class="audio__start" autoplay></audio>'
+        setTimeout(()=>{
+            document.querySelector('.profile-user__user-prof').classList.add('scrit-none')}, 700
+        )
+    }
 })
+//кноки заданий
+import tasc from './js/task.js'
+
+
+localStorage.setItem('balance', balance.textContent)
+
+console.log(localStorage.getItem('balance'))
