@@ -35,12 +35,12 @@ let cnopcaRegistration = buttonRegistration.addEventListener('click', ()=>{
     let numberEmail = user.userEmail.value.length
     let numberPassw = user.userPassword.value.length
     // розкоментити
-     //if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
-     //    audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
-     //    setTimeout(()=>
-     //    {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
-     //    800)
-     //}else{
+     if( numberEmail < 6 || numberPassw < 6 || numberUsern < 6 && numberEmail > 17 || numberPassw > 17 || numberUsern > 17 ){
+         audio.innerHTML = '<audio src="./song/erors.mp3" class="audio__start" autoplay></audio>'
+         setTimeout(()=>
+         {alert('Проверьте правильность ввода данных! Правила ввода: Минимум 6 символов!! (Не больше 17 символов!!) И выбрана аватарка! Все полья должны быть заполнены!!')},
+           800)
+     }else{
         userLOGIN.textContent = user.userName.value
         profileName.textContent = 'Логин: ' + user.userName.value
         document.querySelector('.registration').remove()
