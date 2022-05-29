@@ -47,7 +47,7 @@ let cnopcaRegistration = buttonRegistration.addEventListener('click', ()=>{
         document.querySelector('.profile-user__name').textContent = 'Логин: ' + user.userName.value 
         document.querySelector('.profile-user__prise-number').textContent = 'Баланс: ' + balance.textContent
        
-    //}
+    }
 })
 
 export default cnopcaRegistration
