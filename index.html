@@ -18,15 +18,31 @@
       <div class="registration__ocno">
         <h4 class="registration__title">Регестрация.</h4>
         <div class="registration__form">
-          <p class="registration__text">Придумайте логин</p>
-          <input type="text" class="registration__name" />
+          <label for="" class="registration__login">
+            <p class="registration__text">Придумайте логин</p>
+            <input id="login" type="text" class="registration__name" />
+          </label>
           <p class="registration__text">Введите ваш E-Mail</p>
-          <input type="email" class="registration__email" />
+          <input type="email" id="email" class="registration__email" />
           <p class="registration__text">Придумайте пароль</p>
-          <input type="password" class="registration__password" />
-          <button class="registration__over btn-centr">Регестрация</button>
+          <input type="password" id="password" class="registration__password" />
+          <button
+            id="test-btn"
+            onclick="login()"
+            class="registration__login-btn btn-centr login-yes"
+          >
+            Вход
+          </button>
+          <button
+            id="test-to"
+            onclick="register()"
+            class="registration__over btn-centr"
+          >
+            Регестрация
+          </button>
+          <p class="registration__choice">Вход</p>
         </div>
-
+        <div class="registration__user-avatar">
         <h4 class="registration__text">Выберете аватарку!</h4>
         <div class="registration__avatar">
           <img
@@ -67,7 +83,8 @@
           />
         </div>
       </div>
-    </div>
+      </div>
+    </div>  
     <header class="header">
       <div class="header__container">
         <nav class="menu">
@@ -98,7 +115,7 @@
             <div class="ruletca__balnce-experience">
               <div class="ruletca-balance">
                 <p class="ruletca-balance__text">Ваш баланс</p>
-                <p class="ruletca-balance__mani">2000</p>
+                <p class="ruletca-balance__mani">200000</p>
                 <span> $</span>
               </div>
               <div class="ruletca-lvl">
@@ -109,7 +126,7 @@
               <div class="ruletca-experience">
                 <p class="ruletca-experience__text">Опыт</p>
                 <p class="ruletca-experience__mani">0</p>
-                <p>/<span class="ruletca-experience__opit">100</span></p>
+                <p>/<span class="ruletca-experience__opit">300</span></p>
               </div>
             </div>
             <div class="ruletca-inner">
@@ -185,7 +202,7 @@
           <div class="card__desc">
             <h6 class="card__price">Цена билета 500$</h6>
             <h6 class="card__bue">
-              У вас <span class="card__bue-number">2</span> билетов
+              У вас осталось <span class="card__bue-number">2</span> билет
             </h6>
           </div>
           <ul class="card__items">
@@ -263,7 +280,7 @@
         <div class="tasks">
           <h2 class="tasks__title">Задания!</h2>
           <div class="tasks__container">
-            <div class="tasks__item">
+            <div id="task1" class="tasks__item">
               <h5 class="tasks__name">Задание</h5>
               <h4 class="tasks__prize">Награда</h4>
               <h4 class="tasks__price">
@@ -277,7 +294,7 @@
               </p>
               <button class="tasks__button">Забрать награду</button>
             </div>
-            <div class="tasks__item">
+            <div id="task2" class="tasks__item">
               <h5 class="tasks__name">Задание</h5>
               <h4 class="tasks__prize">Награда</h4>
               <h4 class="tasks__price">
@@ -296,8 +313,115 @@
                 Забрать награду
               </button>
             </div>
+            <div id="task3" class="tasks__item">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number tasks__price-number-card"
+                  >450</span
+                >$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-coleso">0</span>
+              </p>
+              <p class="tasks__text">
+                Получить
+                <span class="tasks__wheel">1</span>
+                копютер
+              </p>
+              <button class="tasks__button">Забрать награду</button>
+            </div>
+            <div id="task4" class="tasks__item active-zadan">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number">500</span>$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-coleso">0</span>
+              </p>
+              <p class="tasks__text">
+                Получить
+                <span class="tasks__wheel">1</span>
+                холодильник
+              </p>
+              <button class="tasks__button">Забрать награду</button>
+            </div>
+            <div id="task5" class="tasks__item active-zadan">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number tasks__price-number-card"
+                  >500</span
+                >$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-coleso">0</span>
+              </p>
+              <p class="tasks__text">
+                Получить
+                <span class="tasks__wheel">1</span>
+                айфон
+              </p>
+              <button class="tasks__button">Забрать награду</button>
+            </div>
+            <div id="task6" class="tasks__item">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number tasks__price-number-card"
+                  >500</span
+                >$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-coleso">0</span>
+              </p>
+              <p class="tasks__text">
+                Получить
+                <span class="tasks__wheel">1</span>
+                чайник
+              </p>
+              <button class="tasks__button">Забрать награду</button>
+            </div>
+            <div id="task7" class="tasks__item">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number tasks__price-number-card"
+                  >500</span
+                >$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-coleso">0</span>
+              </p>
+              <p class="tasks__text">
+                Получить
+                <span class="tasks__wheel">1</span>
+                стиралку
+              </p>
+              <button class="tasks__button">Забрать награду</button>
+            </div>
+            <div id="task8" class="tasks__item">
+              <h5 class="tasks__name">Задание</h5>
+              <h4 class="tasks__prize">Награда</h4>
+              <h4 class="tasks__price">
+                <span class="tasks__price-number tasks__price-number-card"
+                  >500</span
+                >$
+              </h4>
+              <p class="tasks__text">
+                Выполнено: <span class="progres-coleso">0</span>
+              </p>
+              <p class="tasks__text">
+                Получить
+                <span class="tasks__wheel">1</span>
+                плазму
+              </p>
+              <button class="tasks__button">Забрать награду</button>
+            </div>
           </div>
           <button class="tasks__btn">Закрыть</button>
+          <button class="tasks__new-tasks">Получить другие задания</button>
         </div>
       </section>
       <section class="profile section-close" id="navig2elem">
@@ -403,7 +527,17 @@
         </div>
         <button class="vip-accaunt__button">Купить vip аккаунт</button>
       </div>
+      <div class="new-lvl" style="display:none;">
+        <p class="new-lvl__name">Поздравляем вы достигли</р>
+        <h4 class="new-lvl__number">1</h4>
+        <p class="new-lvl__name">Уровень</р>
+        <div class="new-lvl__prize">наград</div>
+      </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <script type="module" src="main.js"></script>
+     <script src="mains.js"></script>  
   </body>
 </html>

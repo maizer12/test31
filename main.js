@@ -11,25 +11,33 @@ let buttonHover = document.querySelector('.ruletca-inner__button')
 let winnerYes = document.querySelector('.winner-yes')
 let winnerAudio = document.querySelector('.winner__audio')
 let history = document.querySelector('.histoty__list')
-let ruletca = document.querySelector('.lvl')
 // опыт и уровень
-let lvl = document.querySelector('.ruletca-lvl__mani')
 let exp = document.querySelector('.ruletca-experience__mani')
 let opitup = document.querySelector('.ruletca-experience__opit')
-//опыт
-let expInner = Number(exp.textContent)
-//уровень
-let lvlInner = Number(lvl.textContent)
-//левел опыт
-
-
-opitup.textContent = 300
+let lvlUser = document.querySelector('.ruletca-lvl__mani') 
+//получаймый опыт
+let opitVan = 150
+//добавление опыта
+function lvlApp(a){
+    exp.textContent = Number(exp.textContent) + a
+    if(Number(exp.textContent) >= Number(opitup.textContent)){
+        opitup.textContent = Number(opitup.textContent)+ (Number(lvlUser.textContent) *  Number(opitup.textContent))
+        document.querySelector('.new-lvl__number').textContent = lvlUser.textContent
+        lvlUser.textContent = Number(lvlUser.textContent)+1 
+        document.querySelector('.new-lvl__prize').textContent = 'И получили ' + (Number(lvlUser.textContent) *  Number(opitup.textContent)) + '$'
+        balance.textContent = Number(balance.textContent)+ (Number(lvlUser.textContent) *  Number(opitup.textContent))
+        document.querySelector('.new-lvl').style.display = ''
+        setTimeout(()=>{
+            document.querySelector('.new-lvl').style.display = 'none'
+        }, 3000)
+    }
+}
 
 //полная история наград
 const historyNew = document.querySelector('.history-max__containet')
 
 //кнопка регистрация
-import cnopRegistration from './js/cnopcaRegist.js'
+//import cnopRegistration from './js/cnopcaRegist.js'
 import shoop from './js/shoop.js'
 
 
@@ -49,11 +57,19 @@ let winnerR = ['Компютер', 'Холодильник', 'Айфон', 'Ча
 let priceP = [500, 300, 400, 25, 400, 200, 25, 50,]
 
 let nuberB = 0
-//получаймый опыт
-let opitVan = 150
+//задания на количество предметов
+let amountV = 0
+let amountT = 0
+let amountF = 0
+let amountFo = 0
+let amountFi = 0
+let amountS = 0
+let amountvan = 0
+
 //крутить
 buttonGo.addEventListener('click', function(){
     if(balance.textContent > 299){
+    lvlApp(opitVan)
     let random = Math.floor(Math.random() * num)
     let priceN =  priceP[random]
     let deg = degR[random]
@@ -61,6 +77,10 @@ buttonGo.addEventListener('click', function(){
     let winner = winnerR[random]
     //задания
     let numbers = nuberB += 1
+    let sprob = document.querySelector('#task1')
+    
+    if(sprob.classList.contains('active-zadan')){
+    let numbers = amountvan += 1
     let nagrad = document.querySelector('.tasks__price-number')
     let wheelObgect = document.querySelector('.tasks__wheel')
     //задания крутить колесо
@@ -68,7 +88,6 @@ buttonGo.addEventListener('click', function(){
     document.querySelector('.progres-coleso').textContent = numbers
     if(wheel <= numbers){
         document.querySelector('.tasks__button').classList.add('zabrat-nagradu')
-        document.querySelector('.exercise-yes').classList.add('tesc-yes-active')
         document.querySelector('.zabrat-nagradu').addEventListener('click', function (){
             const wheel = Number(wheelObgect.textContent)
             const nagride = Number(nagrad.textContent)
@@ -81,13 +100,79 @@ buttonGo.addEventListener('click', function(){
             document.querySelector('.exercise-yes').classList.remove('tesc-yes-active')
             audio.innerHTML = '<audio src="./song/nagrat-zd.mp3" class="audio__start" autoplay></audio>'
             document.querySelector('.tasks__button').classList.remove('zabrat-nagradu')}
-        })
-    }//
+        })}
+    }
+    //задание на телевизоры
     
+    if(winner === 'Плазму'){
+        let amounts = amountV += 1
+        let element = document.querySelector('#task8')
+        element.querySelector('.progres-coleso').textContent = amounts
+        let wheel = element.querySelector('.tasks__wheel').textContent
+        let wheels = Number(wheel)
+        if(amounts >= wheels){
+            element.querySelector('.tasks__button').classList.add('zabrat-nagradu')
+        }
+    }else if(winner === 'Компютер'){
+        let amounts = amountT += 1
+        let element = document.querySelector('#task3')
+        element.querySelector('.progres-coleso').textContent = amounts
+        let wheel = element.querySelector('.tasks__wheel').textContent
+        let wheels = Number(wheel)
+        if(amounts >= wheels){
+            element.querySelector('.tasks__button').classList.add('zabrat-nagradu')
+        }
+    }else if(winner === 'Холодильник'){
+        let amounts = amountF += 1
+        let element = document.querySelector('#task4')
+        element.querySelector('.progres-coleso').textContent = amounts
+        let wheel = element.querySelector('.tasks__wheel').textContent
+        let wheels = Number(wheel)
+        if(amounts >= wheels){
+            element.querySelector('.tasks__button').classList.add('zabrat-nagradu')
+        }
+    }else if(winner === 'Айфон'){
+        let amounts = amountFo += 1
+        let element = document.querySelector('#task5')
+        element.querySelector('.progres-coleso').textContent = amounts
+        let wheel = element.querySelector('.tasks__wheel').textContent
+        let wheels = Number(wheel)
+        if(amounts >= wheels){
+            element.querySelector('.tasks__button').classList.add('zabrat-nagradu')
+        }
+    }else if(winner === 'Чайник'){
+        let amounts = amountFi += 1
+        let element = document.querySelector('#task6')
+        element.querySelector('.progres-coleso').textContent = amounts
+        let wheel = element.querySelector('.tasks__wheel').textContent
+        let wheels = Number(wheel)
+        if(amounts >= wheels){
+            element.querySelector('.tasks__button').classList.add('zabrat-nagradu')
+        }
+    }else if(winner === 'Стиралку'){
+        let amounts = amountS += 1
+        let element = document.querySelector('#task7')
+        element.querySelector('.progres-coleso').textContent = amounts
+        let wheel = element.querySelector('.tasks__wheel').textContent
+        let wheels = Number(wheel)
+        if(amounts >= wheels){
+            element.querySelector('.tasks__button').classList.add('zabrat-nagradu')
+        }
+    }else{
+        
+    }
+    // проверка на выполнение 
+    document.querySelectorAll('.active-zadan').forEach(ele =>{
+        let col = Number(ele.querySelector('.progres-coleso').textContent)
+        let winn = Number(ele.querySelector('.tasks__wheel').textContent)
+        if(col >= winn){
+            document.querySelector('.exercise-yes').classList.add('tesc-yes-active')
+            document.querySelector('.history__btn').style.background='#8ae216'
+        }
+    })
+
     body.style.overflow = 'hidden'
-    //добавление опыта
-    let expPLus = expInner += opitVan
-    exp.textContent = expPLus
+    
     
     // стрелка
     errow.style.transform = 'rotate(' +  degF + 'deg)';
@@ -96,7 +181,7 @@ buttonGo.addEventListener('click', function(){
     balance.textContent = balance.textContent - price
     // окно победы внутри
     nameWin.innerHTML = '<h3 class="winner__name"> Поздравляем Вы выйграли <span>' + winner + '</span></h3>' + '<img src="img/'+ winner +'.png" alt="" class="winner__img" />' + '<audio src="./song/winner.mp3" autoplay></audio>'+ '<button class="winner__button">Забрать</button>'
-
+    
     // оконо победы
     setTimeout(()=>{
     nameWin.classList.add('you-winer')
@@ -132,24 +217,7 @@ buttonGo.addEventListener('click', function(){
     //добавление елемента
     setTimeout(()=>{
     items.innerHTML += '<div id = "' + numbers + '" class="box-awards__item">'+'<p class="box-awards__name">' + winner +'</p>' + '<img src="img/'+ winner +'.png" alt="" class="box-awards__img" />'+ '<button'+ ' id= "' + numbers + '" class="box-awards__button">'   + priceN  + '</button> </div>'
-    let buttonItems =document.querySelectorAll('.box-awards__button')
-    // кнопка продать предмет
-    buttonItems.forEach(element => {
-        element.addEventListener('click', function(){
-        let productPrice = Number(element.textContent)
-        if(productPrice < 600){
-           document.getElementById( element.id).remove()
-           let productPrice = Number(element.textContent)
-           let priceBy = Number(balance.textContent)
-           console.log(productPrice)
-           balance.textContent = priceBy + productPrice
-           audio.innerHTML = '<audio src="./song/bue.mp3" class="audio__start" autoplay></audio>'
-           if(items.getElementsByClassName('item')){
-            winnerYes.classList.remove('yes-item')}
-            }else{
-            alert('Пошел в жопу маленький хакер!!')
-        }})
-     })
+    
     }, 6000)
     //добавление истории
     setTimeout(()=>{
@@ -163,28 +231,8 @@ buttonGo.addEventListener('click', function(){
         document.querySelector('.history__item').remove()
     }
     
-    //новый левел 
-    const opitLvl = lvlInner * 300 
-    if(expInner >= opitLvl){
-        setTimeout(()=>{
-            
-            let grow = Number(balance.textContent)
-             let levelUp =  lvlInner += 1
-             lvl.textContent = levelUp
-            opitup.textContent = opitLvl + 300
-            //баланс
-            let jec = grow + (400 * lvlInner)
-            balance.textContent = jec
-            audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
-            ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (400 * lvlInner) + '$ Приятной игры!!</h3></div>'
-        setTimeout(()=>{
-        document.querySelector('.new-lvl').remove()
-        //опыт 
-        let levele = document.querySelector('.ruletca-lvl').textContent
-        document.querySelector('.profile-user__lvl').textContent = levele
-        }, 5000)
-        }, 8000)
-    }
+    
+    
     
     }else{
         audio.innerHTML = '<audio src="./song/eror.mp3" class="audio__start" autoplay></audio>'
@@ -216,7 +264,6 @@ navigation.forEach( navig =>{
         document.getElementById(navig.id + 'elem').classList.add('section-open')
         //получение актуальной информации в профиль
         profilePrice.textContent = 'Текущий баланс: ' + balance.textContent + '$'
-        profileLvl.textContent = 'Ваш уровень: ' + lvl.textContent
         
     })
 })
@@ -310,6 +357,7 @@ elements.addEventListener('click', () => {
     //легендарны карточки
     if( numberBilleet > 0 && (idCard ===  'card-4price'  || idCard ===  'card-5price' || idCard ===  'card-6price' )){
         const randome = 11
+        lvlApp(400)
         let randomCard = Math.floor(Math.random() * randome)
         document.getElementById(elements.id).classList.add('card-open')
         let numberBill = Number(nuberBilet.textContent)
@@ -323,6 +371,7 @@ elements.addEventListener('click', () => {
     }
     else if(numberBill > 0 && (idCard ===  'card-1price'  || idCard ===  'card-2price' || idCard ===  'card-3price') ){
      const randome = 11
+     lvlApp(100)
      let randomCard = Math.floor(Math.random() * randome)
      document.getElementById(elements.id).classList.add('card-open')
      let numberBill = Number(nuberBil.textContent)
@@ -340,7 +389,6 @@ elements.addEventListener('click', () => {
     const wheel = Number(wheelObgect.textContent)
      if(wheel <= numbers){
          document.querySelector('.tasks__button-card').classList.add('zabrat-nagradu')
-         document.querySelector('.exercise-yes').classList.add('tesc-yes-active')
          document.querySelector('.zabrat-nagradu').addEventListener('click', function (){
              const wheel = Number(wheelObgect.textContent)
              const nagride = Number(nagrad.textContent)
@@ -350,7 +398,6 @@ elements.addEventListener('click', () => {
              let priceBy = Number(balance.textContent)
              balance.textContent = priceBy + nagride
              nagrad.textContent = 2 * nagride
-             document.querySelector('.exercise-yes').classList.remove('tesc-yes-active')
              audio.innerHTML = '<audio src="./song/nagrat-zd.mp3" class="audio__start" autoplay></audio>'
              document.querySelector('.tasks__button-card').classList.remove('zabrat-nagradu')}
          })
@@ -362,30 +409,9 @@ elements.addEventListener('click', () => {
         document.querySelector('.icards-anim').classList.remove('icards-anim')
         document.querySelector('.card__items_ainimat').classList.remove('card__items_ainimat')
     }
-     //опыт
-     let expPLus = expInner +=   opitVan
-     exp.textContent = expPLus
-     const opitLvl = lvlInner * 300 
-     //левел
-     if(expInner >= opitLvl ){
-         setTimeout(()=>{
-             //опыт
-             let grow = Number(balance.textContent)
-             let levelUp =  lvlInner += 1
-             lvl.textContent = levelUp
-             opitup.textContent = opitLvl + 300
-             //баланс
-             let jec = grow + (400 * lvlInner)
-             balance.textContent = jec
-             audio.innerHTML = '<audio src="./song/lvl.mp3" class="audio__start" autoplay></audio>'
-             ruletca.innerHTML += '<div class="new-lvl"><h3 class="new-lvl__title">Поздравляем вы достигли</h3><h3 class="new-lvl__number">' + levelUp +'</h3><h3 class="new-lvl__title">Уровень и получаете ' + (400 * lvlInner) + '$ Приятной игры!!</h3></div>'
-             setTimeout(()=>{
-                 document.querySelector('.new-lvl').remove()
-                 //опыт 
-                let levele = document.querySelector('.ruletca-lvl').textContent
-                document.querySelector('.profile-user__lvl').textContent = levele
-             }, 5000)
- })}})})
+
+     
+     })})
 
 //})})
 // кнопка
@@ -440,7 +466,32 @@ document.querySelector('.profile-user__btn').addEventListener('click', function(
 //кноки заданий
 import tasc from './js/task.js'
 
+//получить радомное задание
 
-localStorage.setItem('balance', balance.textContent)
+import tescRandom from './js/newtask.js'
 
-console.log(localStorage.getItem('balance'))
+//обновления профиль
+window.addEventListener('click', function(){
+    document.querySelector('.profile__lvl').textContent = 'Ваш уровень ' + document.querySelector('.profile-user__lvl-number').textContent
+    if(document.querySelector('.box-awards__button')){
+        let buttonItems = document.querySelectorAll('.box-awards__button')
+    // кнопка продать предмет
+    buttonItems.forEach(element => {
+        element.addEventListener('click', function(){
+        let productPrice = Number(element.textContent)
+        if(productPrice < 600){
+           document.getElementById( element.id).remove()
+           let productPrice = Number(element.textContent)
+           let priceBy = Number(balance.textContent)
+           balance.textContent = priceBy + productPrice
+           audio.innerHTML = '<audio src="./song/bue.mp3" class="audio__start" autoplay></audio>'
+           if(items.getElementsByClassName('item')){
+            winnerYes.classList.remove('yes-item')}
+            }else{
+            alert('Пошел в жопу маленький хакер!!')
+        }})
+    })
+    }
+})
+
+

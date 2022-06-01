@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('css/style.css');
 body{
     padding-top: 40px;
     overflow-x: hidden;
@@ -556,7 +557,6 @@ button{
     }
 }
 .new-lvl{
-    position: absolute;
     font-size: 37px;
     width: 400px;
     height: 500px;
@@ -575,10 +575,8 @@ button{
     font-family: 'Roboto', sans-serif;
     font-size: 60px;
     font-weight: 700;
-    background-color: rgb(62, 35, 1);
     display: inline-block;
     margin: 35px 0;
-    padding: 20px;
     width: 50%;
     border-radius: 50%;
 }
@@ -1315,4 +1313,21 @@ button{
 }
 .tasks-close{
     display: none;
+}
+.tasks__new-tasks{
+    transform: translateX(-50%);
+    margin-left: 50%;
+    margin-top: 15px;
+}
+.tasks__item{
+    display: none;
+}
+.active-zadan{
+    display: flex;
+}
+.zadan-over{
+    background-color: #bc0606;
+}
+.zabrat-nagradu{
+    background: #bc0606;
 }
